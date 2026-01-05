@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="light" lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>สมัครสมาชิก - CarRent</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "primary-hover": "#0f66bd",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans Thai", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "Noto Sans Thai", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Plus Jakarta Sans", "Noto Sans Thai", sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white flex flex-col min-h-screen overflow-x-hidden">
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-gray-800 bg-white/90 dark:bg-[#101922]/90 backdrop-blur-md px-4 sm:px-10 py-3 transition-colors">
+        <div class="flex items-center gap-4 text-[#111418] dark:text-white">
+            <div class="size-8 text-primary">
+                <span class="material-symbols-outlined text-3xl">directions_car</span>
+            </div>
+            <a href="index.html"><h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2></a>
+        </div>
+        <div class="hidden lg:flex flex-1 justify-end gap-8">
+            <nav class="flex items-center gap-8">
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="index.html">หน้าหลัก</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="Searchcar.html">รถเช่า</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="index.html#promotions">โปรโมชั่น</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="tellcontact.html">ติดต่อเรา</a>
+            </nav>
+            <div class="flex gap-3">
+                <a href="login.html"
+                    class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-background-light dark:bg-gray-800 text-[#111418] dark:text-white text-sm font-bold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <span class="truncate">เข้าสู่ระบบ</span>
+                </a>
+                <a href="register.html"
+                    class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold hover:bg-primary-hover transition-colors shadow-sm hover:shadow-md">
+                    <span class="truncate">สมัครสมาชิก</span>
+                </a>
+            </div>
+        </div>
+        <div class="lg:hidden">
+            <button class="text-[#111418] dark:text-white p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <main class="flex-grow w-full flex flex-col items-center justify-center py-10 px-4 sm:px-6 relative">
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]">
+            </div>
+            <div
+                class="absolute -bottom-[20%] -left-[10%] w-[500px] h-[500px] rounded-full bg-blue-300/10 blur-[100px]">
+            </div>
+        </div>
+        <div
+            class="w-full max-w-[1100px] bg-white dark:bg-[#1a202c] rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative z-10 min-h-[640px]">
+            <div
+                class="hidden md:flex w-5/12 relative flex-col justify-end p-10 bg-gray-900 text-white overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img alt="Scenic road" class="w-full h-full object-cover opacity-90 scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuByyepNoGjDp015lJ5sjXRkShGmtJhPcQ1COE184mn7s1jJJwcxbqKj2_lwNh62Pp3mhJEiDVJqLHlF9zmx0M8fWOj6OgiELHS2G12R9V654k9ZeaI9LsXR2O9VEBuI3MURxJGCyO7RjDQtrZpfUkJyjbfIBlpZDnMjfjdoI-AbB2Ov5ZI9MIpSl4jIWt7abXr0T8cPa1gTgV2FqNoWfpwluxxJ066lIAHN1ipgSwyEHKpOteeEpZcvavfnlNSEzOrYR5MWR0N8DNHg" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/90 via-[#101922]/50 to-transparent mix-blend-multiply">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#101922]/90"></div>
+                </div>
+                <div class="relative z-10">
+                    <div
+                        class="size-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6 border border-white/20 shadow-lg">
+                        <span class="material-symbols-outlined text-3xl">key</span>
+                    </div>
+                    <h2 class="text-3xl font-black mb-3 leading-tight tracking-tight">ปลดล็อก<br />ประสบการณ์ใหม่</h2>
+                    <p class="text-gray-200 font-medium leading-relaxed opacity-90">
+                        สมัครสมาชิกวันนี้เพื่อรับสิทธิพิเศษ ส่วนลด และการจัดการการจองที่ง่ายดายกว่าเดิม
+                    </p>
+                    <div class="mt-10 flex gap-2">
+                        <div class="h-1.5 w-8 rounded-full bg-white"></div>
+                        <div class="h-1.5 w-1.5 rounded-full bg-white/30"></div>
+                        <div class="h-1.5 w-1.5 rounded-full bg-white/30"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-7/12 p-8 sm:p-12 lg:p-14 bg-white dark:bg-[#1a202c]">
+                <div class="max-w-md mx-auto h-full flex flex-col justify-center">
+                    <div class="mb-8 text-center md:text-left">
+                        <h1 class="text-3xl font-black text-gray-900 dark:text-white mb-2 tracking-tight">สมัครสมาชิก
+                        </h1>
+                        <p class="text-gray-500 dark:text-gray-400">กรอกข้อมูลเพื่อเริ่มต้นใช้งาน CarRent</p>
+                    </div>
+                    <form class="flex flex-col gap-5">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-1.5">
+                                <label
+                                    class="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">ชื่อ</label>
+                                <div class="relative group">
+                                    <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px] transition-colors group-focus-within:text-primary">person</span>
+                                    <input
+                                        class="w-full h-11 pl-10 pr-4 rounded-xl bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary/50 text-gray-900 dark:text-white placeholder:text-gray-400 transition-all font-medium"
+                                        placeholder="ชื่อจริง" type="text" />
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label
+                                    class="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">นามสกุล</label>
+                                <div class="relative group">
+                                    <input
+                                        class="w-full h-11 px-4 rounded-xl bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary/50 text-gray-900 dark:text-white placeholder:text-gray-400 transition-all font-medium"
+                                        placeholder="นามสกุล" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <label
+                                class="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">อีเมล</label>
+                            <div class="relative group">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px] transition-colors group-focus-within:text-primary">mail</span>
+                                <input
+                                    class="w-full h-11 pl-10 pr-4 rounded-xl bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary/50 text-gray-900 dark:text-white placeholder:text-gray-400 transition-all font-medium"
+                                    placeholder="name@example.com" type="email" />
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <label
+                                class="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">รหัสผ่าน</label>
+                            <div class="relative group">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px] transition-colors group-focus-within:text-primary">lock</span>
+                                <input
+                                    class="w-full h-11 pl-10 pr-10 rounded-xl bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary/50 text-gray-900 dark:text-white placeholder:text-gray-400 transition-all font-medium"
+                                    placeholder="********" type="password" />
+                                <button
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-[20px]">visibility_off</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <label
+                                class="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">ยืนยันรหัสผ่าน</label>
+                            <div class="relative group">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px] transition-colors group-focus-within:text-primary">lock_reset</span>
+                                <input
+                                    class="w-full h-11 pl-10 pr-4 rounded-xl bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary/50 text-gray-900 dark:text-white placeholder:text-gray-400 transition-all font-medium"
+                                    placeholder="********" type="password" />
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 mt-1">
+                            <div class="flex items-center h-5">
+                                <input
+                                    class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
+                                    id="terms" type="checkbox" />
+                            </div>
+                            <label class="text-sm font-medium text-gray-500 dark:text-gray-400 leading-tight"
+                                for="terms">
+                                ฉันยอมรับ <a class="text-primary hover:underline" href="#">ข้อกำหนดและเงื่อนไข</a> และ
+                                <a class="text-primary hover:underline" href="#">นโยบายความเป็นส่วนตัว</a>
+                            </label>
+                        </div>
+                        <button
+                            class="mt-4 w-full h-12 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl shadow-lg hover:shadow-primary/30 transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                            type="submit">
+                            <span>สมัครสมาชิก</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </form>
+                    <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700 text-center">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                            มีบัญชีผู้ใช้แล้ว? <a
+                                class="text-primary hover:text-primary-hover font-bold hover:underline"
+                                href="login.html">เข้าสู่ระบบ</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-background-dark text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 text-white mb-6">
+                        <div class="size-8 text-primary">
+                            <span class="material-symbols-outlined text-3xl">directions_car</span>
+                        </div>
+                        <a href="index.html"><h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2></a>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        ให้บริการเช่ารถคุณภาพเยี่ยมทั่วไทย มั่นใจด้วยมาตรฐานความปลอดภัยและการบริการระดับมืออาชีพ
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="text-gray-400 hover:text-primary transition-colors" href="#"><span
+                                class="material-symbols-outlined">public</span></a>
+                        <a class="text-gray-400 hover:text-primary transition-colors" href="#"><span
+                                class="material-symbols-outlined">mail</span></a>
+                        <a class="text-gray-400 hover:text-primary transition-colors" href="#"><span
+                                class="material-symbols-outlined">call</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6">เกี่ยวกับเรา</h3>
+                    <ul class="flex flex-col gap-3 text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="index.html#about">ประวัติความเป็นมา</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="index.html">ทีมงาน</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="index.html">ข่าวสารและกิจกรรม</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="index.html">ร่วมงานกับเรา</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6">บริการลูกค้า</h3>
+                    <ul class="flex flex-col gap-3 text-gray-400">
+                        <li><a class="hover:text-primary transition-colors" href="tellcontact.html">ศูนย์ช่วยเหลือ</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="Searchcar.html">วิธีการจอง</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="index.html">เงื่อนไขการใช้บริการ</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="index.html">นโยบายความเป็นส่วนตัว</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6">ติดต่อเรา</h3>
+                    <ul class="flex flex-col gap-4 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined mt-0.5 text-primary">location_on</span>
+                            <span>123 ถนนสุขุมวิท, แขวงคลองเตย, เขตคลองเตย, กรุงเทพมหานคร 10110</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">phone</span>
+                            <a href="tel:021234567" class="hover:text-primary transition-colors">02-123-4567</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">email</span>
+                            <a href="mailto:contact@carrent.com" class="hover:text-primary transition-colors">contact@carrent.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2023 CarRent. สงวนลิขสิทธิ์.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a class="hover:text-white transition-colors" href="index.html">Privacy Policy</a>
+                    <a class="hover:text-white transition-colors" href="index.html">Terms of Service</a>
+                    <a class="hover:text-white transition-colors" href="index.html">Cookies Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

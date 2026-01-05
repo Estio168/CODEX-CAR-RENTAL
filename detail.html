@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>รายละเอียดรถ - Toyota Camry 2.5 Premium</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="css/detail.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main-light dark:text-text-main-dark antialiased overflow-x-hidden min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-gray-800 bg-white/90 dark:bg-[#101922]/90 backdrop-blur-md px-4 sm:px-10 py-3 transition-colors">
+        <div class="flex items-center gap-4 text-[#111418] dark:text-white">
+            <div class="size-8 text-primary">
+                <span class="material-symbols-outlined text-3xl">directions_car</span>
+            </div>
+            <h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2>
+        </div>
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex flex-1 justify-end gap-8">
+            <nav class="flex items-center gap-8">
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="index.html">หน้าหลัก</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="Searchcar.html">รถเช่า</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="index.html#promotions">โปรโมชั่น</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="contact.html">ติดต่อเรา</a>
+            </nav>
+            <div class="flex gap-2">
+                <a href="login.html"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                    <span class="truncate">เข้าสู่ระบบ</span>
+                </a>
+                <a href="register.html"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+                    <span class="truncate">ลงทะเบียน</span>
+                </a>
+            </div>
+        </div>
+        <!-- Mobile Menu Icon -->
+        <div class="lg:hidden">
+            <button class="text-[#111418] dark:text-white p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-10 py-6">
+        <!-- Breadcrumbs -->
+        <div
+            class="flex flex-wrap items-center gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark mb-6">
+            <a class="hover:text-primary transition-colors" href="index.html">หน้าแรก</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <a class="hover:text-primary transition-colors" href="Searchcar.html">กรุงเทพฯ</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <span class="text-text-main-light dark:text-text-main-dark font-medium">Toyota Camry 2.5 Premium</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left Column: Car Details (Images, Specs, Info) -->
+            <div class="lg:col-span-8 space-y-8">
+                <!-- Gallery Section -->
+                <div class="space-y-4">
+                    <div
+                        class="w-full aspect-video rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 relative group">
+                        <div class="bg-cover bg-center w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Side profile of a silver Toyota Camry parked on a city street"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfJYzgPQa3p1_za4dkrAR3uWk5NbQIqNa9veVs4hUJqj328iFOaLq1aNcA-Chh16lgnTAqDHWb6sqAEULNPhmdc2Rkleb3KGRj3-n7-ffPom_Lf3YvbEZg9wzCfS_zW1-npH6ItYF5IeUOUx33pRd1n-NN7-68LGW5lE658GUQxPnCWIye8KUlabBlY4kDnZrZlzu6vZeK43JOASNXrSQEglmpJpplMB_hpWNiLPfPR-YJ3hqyOMeT1WHWsyIMWxK6M7v1veERHXO2');">
+                        </div>
+                        <div
+                            class="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">photo_camera</span>
+                            1/8
+                        </div>
+                    </div>
+                    <!-- Thumbnails -->
+                    <div class="grid grid-cols-4 gap-4">
+                        <div
+                            class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer border-2 border-primary ring-2 ring-primary/20">
+                            <div class="bg-cover bg-center w-full h-full" data-alt="Thumbnail of silver sedan side view"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYxCOJjQv7CGk21rWAQyPJId2NwaFLJBSO8n3RZ3uyRGStjLeZ9Z3jxDOriUqf3oducnGT2UjTirNRupyqFHKEL5j2x5WrIZyxWXVVRENrG4P4leWBpLIhj4LYQwf1GVxIm0wiv-ntBUXO-MyfD3zKDa0p-zecJeW1NJcy9olc63I8Klo5hqpALgcm57g2l6SBKFw3zsbS8aomd3FbgkDPmQtiJ8ddmUB9o88LxPJFjW5KerQZYC4Hiqnwv2xVGURFtskal5pPv7LS');">
+                            </div>
+                        </div>
+                        <div
+                            class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer border border-transparent hover:border-gray-300 dark:hover:border-gray-600 opacity-70 hover:opacity-100 transition-all">
+                            <div class="bg-cover bg-center w-full h-full"
+                                data-alt="Thumbnail of luxury car interior dashboard"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAjkgrRMf9DrKZwbYRvVEOgcuzIE9hbQcU0l20rMO6LlWaEF5q2fNX0y9MdJOWooIwospFJQjL8VV7ooQgOPW2RCxycbDmsN4DitEUTn0UF0I8jJkv8At8c8ELlIPbf3dJ_jgvoNpJqCu3rqLJMZ9IeBQ8DsJ-ZnfycaZa127r96dCecbv0ePJapZ1mmvQhD0gKH24o0aRx7hzhmaEj0Ol9-gjNof91ITm6jE7ZvaXkVfATdyYEZaDY1sms0-uaCsMFeNz5LVDmxuBA');">
+                            </div>
+                        </div>
+                        <div
+                            class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer border border-transparent hover:border-gray-300 dark:hover:border-gray-600 opacity-70 hover:opacity-100 transition-all">
+                            <div class="bg-cover bg-center w-full h-full"
+                                data-alt="Thumbnail of car front view on the road"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBQITHFW1EJ1SnFXWleJhIsDYlUlWI0Yd1_sMHtlxrtkvYI1ZUkiSA9VgnULtQTVH4EBAvHu87s-uMLXUIvU0cFQy8DEmch3q9xijEH_3FwTmtmO9S49y1nBt7TmAuVnfcZ8or-8krFBUDm_4s2ZldpoPQOuvB53hqL6Zdnv9jm33of4ugSkaJPz2Atd_-tyQvKgmEi_-sdc-6vBSuLCVOBvmquRiqXR1baGyS2ao287RB3iKC3vhoD5GKVK3nnqZj5_RCNysdhc-U');">
+                            </div>
+                        </div>
+                        <div
+                            class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer border border-transparent hover:border-gray-300 dark:hover:border-gray-600 opacity-70 hover:opacity-100 transition-all relative flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+                            <span
+                                class="text-text-secondary-light dark:text-text-secondary-dark font-medium text-sm">+5</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Info -->
+                <div
+                    class="flex flex-wrap justify-between items-start gap-4 pb-6 border-b border-border-light dark:border-border-dark">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-primary text-xs font-bold rounded uppercase tracking-wider">Premium</span>
+                            <span
+                                class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold rounded uppercase tracking-wider">Hybrid</span>
+                        </div>
+                        <h1
+                            class="text-3xl md:text-4xl font-extrabold text-text-main-light dark:text-text-main-dark tracking-tight">
+                            Toyota Camry 2.5 HEV</h1>
+                        <div
+                            class="flex items-center gap-4 text-text-secondary-light dark:text-text-secondary-dark text-sm">
+                            <span class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-yellow-400 text-lg fill-1">star</span>
+                                <span class="font-bold text-text-main-light dark:text-text-main-dark">4.8</span> (124
+                                รีวิว)
+                            </span>
+                            <span>•</span>
+                            <span>กรุงเทพมหานคร</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </button>
+                        <button
+                            class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                            <span class="material-symbols-outlined">share</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Specifications Grid -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ข้อมูลจำเพาะ</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div
+                            class="flex flex-col items-center justify-center p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark text-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">settings</span>
+                            <span
+                                class="text-xs text-text-secondary-light dark:text-text-secondary-dark">ระบบเกียร์</span>
+                            <span class="font-bold">อัตโนมัติ</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark text-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">group</span>
+                            <span
+                                class="text-xs text-text-secondary-light dark:text-text-secondary-dark">ผู้โดยสาร</span>
+                            <span class="font-bold">5 ที่นั่ง</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark text-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">local_gas_station</span>
+                            <span
+                                class="text-xs text-text-secondary-light dark:text-text-secondary-dark">เชื้อเพลิง</span>
+                            <span class="font-bold">เบนซิน + ไฟฟ้า</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark text-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-3xl">luggage</span>
+                            <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">สัมภาระ</span>
+                            <span class="font-bold">3 ใบใหญ่</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Description -->
+                <div>
+                    <h3 class="text-xl font-bold mb-3">รายละเอียดรถยนต์</h3>
+                    <div
+                        class="prose prose-slate dark:prose-invert max-w-none text-text-secondary-light dark:text-text-secondary-dark">
+                        <p class="leading-relaxed">
+                            สัมผัสประสบการณ์การขับขี่ที่เหนือระดับกับ Toyota Camry 2.5 HEV Premium Luxury ปี 2023
+                            รถยนต์ซีดานหรูที่ผสมผสานความสง่างามเข้ากับเทคโนโลยีไฮบริดล้ำสมัย
+                            ให้ความประหยัดน้ำมันเป็นเลิศแต่ยังคงไว้ซึ่งสมรรถนะที่ตอบสนองได้ดั่งใจ
+                            ภายในห้องโดยสารกว้างขวาง ตกแต่งด้วยวัสดุพรีเมียม เบาะหนังแท้ปรับไฟฟ้าพร้อมระบบระบายอากาศ
+                        </p>
+                        <p class="mt-4 leading-relaxed">
+                            เหมาะสำหรับการเดินทางทั้งในเมืองและการออกต่างจังหวัด พร้อมระบบความปลอดภัย Toyota Safety
+                            Sense เต็มรูปแบบ เพื่อความอุ่นใจตลอดการเดินทางของคุณ
+                        </p>
+                    </div>
+                </div>
+                <!-- Features Checklist -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">สิ่งอำนวยความสะดวก</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-6">
+                        <div class="flex items-center gap-2 text-text-main-light dark:text-text-main-dark">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <span>GPS นำทาง</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-text-main-light dark:text-text-main-dark">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <span>Bluetooth / Apple CarPlay</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-text-main-light dark:text-text-main-dark">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <span>กล้องมองหลัง</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-text-main-light dark:text-text-main-dark">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <span>USB Charger 4 จุด</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-text-main-light dark:text-text-main-dark">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <span>Sunroof เปิด-ปิดไฟฟ้า</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-text-main-light dark:text-text-main-dark">
+                            <span class="material-symbols-outlined text-green-500 text-xl">check_circle</span>
+                            <span>ประกันภัยชั้น 1</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reviews Summary -->
+                <div class="border-t border-border-light dark:border-border-dark pt-8">
+                    <h3 class="text-xl font-bold mb-6">คะแนนและรีวิว</h3>
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 border border-border-light dark:border-border-dark flex flex-col md:flex-row gap-8 items-center md:items-start">
+                        <!-- Rating Big Number -->
+                        <div class="flex flex-col items-center justify-center gap-2 min-w-[150px]">
+                            <span class="text-6xl font-black text-text-main-light dark:text-text-main-dark">4.8</span>
+                            <div class="flex text-yellow-400">
+                                <span class="material-symbols-outlined fill-1">star</span>
+                                <span class="material-symbols-outlined fill-1">star</span>
+                                <span class="material-symbols-outlined fill-1">star</span>
+                                <span class="material-symbols-outlined fill-1">star</span>
+                                <span class="material-symbols-outlined fill-1">star_half</span>
+                            </div>
+                            <span class="text-sm text-text-secondary-light dark:text-text-secondary-dark">จาก 124
+                                รีวิว</span>
+                        </div>
+                        <!-- Progress Bars -->
+                        <div class="flex-1 w-full space-y-2">
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-bold w-3">5</span>
+                                <div
+                                    class="flex-1 h-2 bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary w-[78%] rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-bold w-3">4</span>
+                                <div
+                                    class="flex-1 h-2 bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary w-[15%] rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-bold w-3">3</span>
+                                <div
+                                    class="flex-1 h-2 bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary w-[5%] rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-bold w-3">2</span>
+                                <div
+                                    class="flex-1 h-2 bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary w-[2%] rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-bold w-3">1</span>
+                                <div
+                                    class="flex-1 h-2 bg-background-light dark:bg-background-dark rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary w-[0%] rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- User Review Item -->
+                    <div class="mt-6 space-y-6">
+                        <div class="flex gap-4">
+                            <div class="size-10 rounded-full bg-gray-300 dark:bg-gray-600 overflow-hidden shrink-0">
+                                <div class="w-full h-full bg-cover bg-center" data-alt="Avatar of a male user"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBqPfkhYfXdGr2PnpsKljjGTLI4W_i_k8abxzhoi165Q_M0logl4oQ9n9lc86P8veX6mvydPQF89ZpROuKM5YkoPahpUStc0gGwEj3ivqombbtBoCUNTFKPPie5v8RVLLOlEiieIa6vqmzBjAqLmQoTHi887JsmfmaF9o883d29010l9ljgohUEq_mxKFWwq_mOwvfbCSQxe-I5VGhKTemHVTaiQm0ow888czbnZfvkonYBgcU5EO0z7xnyJM6nVupNvt_0KRCBkpS');">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-bold text-text-main-light dark:text-text-main-dark">สมชาย
+                                        ใจดี</span>
+                                    <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">• 2
+                                        สัปดาห์ที่แล้ว</span>
+                                </div>
+                                <div class="flex text-yellow-400 text-xs mb-2">
+                                    <span class="material-symbols-outlined text-base fill-1">star</span>
+                                    <span class="material-symbols-outlined text-base fill-1">star</span>
+                                    <span class="material-symbols-outlined text-base fill-1">star</span>
+                                    <span class="material-symbols-outlined text-base fill-1">star</span>
+                                    <span class="material-symbols-outlined text-base fill-1">star</span>
+                                </div>
+                                <p
+                                    class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">
+                                    รถสะอาดมากครับ ขับนิ่ม แอร์เย็นฉ่ำ เจ้าหน้าที่บริการดีมาก แนะนำการใช้งานครบถ้วน
+                                    คุ้มค่ากับราคาครับ ไว้จะมาใช้บริการอีกแน่นอน
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mt-6 text-primary text-sm font-bold hover:underline flex items-center gap-1">
+                        ดูรีวิวทั้งหมด (124)
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Right Column: Booking Card (Sticky) -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-24 space-y-6">
+                    <!-- Booking Box -->
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-xl border border-border-light dark:border-border-dark p-6">
+                        <div class="flex justify-between items-baseline mb-6">
+                            <div>
+                                <span class="text-3xl font-black text-primary">฿2,500</span>
+                                <span class="text-text-secondary-light dark:text-text-secondary-dark">/ วัน</span>
+                            </div>
+                            <span
+                                class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded">
+                                ว่างพร้อมจอง
+                            </span>
+                        </div>
+                        <!-- Date Picker Section -->
+                        <div class="space-y-4 mb-6">
+                            <div class="relative">
+                                <label
+                                    class="block text-xs font-bold text-text-secondary-light dark:text-text-secondary-dark mb-1 ml-1 uppercase">สถานที่รับ-คืนรถ</label>
+                                <div
+                                    class="flex items-center bg-background-light dark:bg-background-dark rounded-lg px-3 py-2.5 border border-transparent focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+                                    <span
+                                        class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark mr-2">location_on</span>
+                                    <input
+                                        class="bg-transparent border-none p-0 text-sm font-medium text-text-main-light dark:text-text-main-dark w-full focus:ring-0 placeholder:text-text-secondary-light"
+                                        placeholder="ระบุจุดรับรถ" type="text" value="สนามบินสุวรรณภูมิ" />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label
+                                        class="block text-xs font-bold text-text-secondary-light dark:text-text-secondary-dark mb-1 ml-1 uppercase">วันรับรถ</label>
+                                    <div
+                                        class="flex items-center bg-background-light dark:bg-background-dark rounded-lg px-3 py-2.5 border border-transparent focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+                                        <input
+                                            class="bg-transparent border-none p-0 text-sm font-medium text-text-main-light dark:text-text-main-dark w-full focus:ring-0"
+                                            type="text" value="15 ต.ค. 66" />
+                                    </div>
+                                    <div
+                                        class="mt-1 flex items-center bg-background-light dark:bg-background-dark rounded-lg px-3 py-2">
+                                        <input
+                                            class="bg-transparent border-none p-0 text-sm font-medium text-text-main-light dark:text-text-main-dark w-full focus:ring-0"
+                                            type="text" value="10:00" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-xs font-bold text-text-secondary-light dark:text-text-secondary-dark mb-1 ml-1 uppercase">วันคืนรถ</label>
+                                    <div
+                                        class="flex items-center bg-background-light dark:bg-background-dark rounded-lg px-3 py-2.5 border border-transparent focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+                                        <input
+                                            class="bg-transparent border-none p-0 text-sm font-medium text-text-main-light dark:text-text-main-dark w-full focus:ring-0"
+                                            type="text" value="18 ต.ค. 66" />
+                                    </div>
+                                    <div
+                                        class="mt-1 flex items-center bg-background-light dark:bg-background-dark rounded-lg px-3 py-2">
+                                        <input
+                                            class="bg-transparent border-none p-0 text-sm font-medium text-text-main-light dark:text-text-main-dark w-full focus:ring-0"
+                                            type="text" value="10:00" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Price Breakdown -->
+                        <div class="bg-background-light dark:bg-background-dark rounded-lg p-4 mb-6 space-y-2">
+                            <div
+                                class="flex justify-between text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                                <span>฿2,500 x 3 วัน</span>
+                                <span>฿7,500</span>
+                            </div>
+                            <div
+                                class="flex justify-between text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                                <span>ค่าธรรมเนียมบริการ</span>
+                                <span>฿0</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-green-600 font-medium">
+                                <span>ส่วนลดโปรโมชั่น</span>
+                                <span>-฿500</span>
+                            </div>
+                            <div
+                                class="border-t border-gray-200 dark:border-gray-700 my-2 pt-2 flex justify-between items-center">
+                                <span class="font-bold text-text-main-light dark:text-text-main-dark">ยอดรวมสุทธิ</span>
+                                <span class="text-xl font-black text-primary">฿7,000</span>
+                            </div>
+                        </div>
+                        <!-- Actions -->
+                        <div class="flex flex-col gap-3">
+                            <a href="carrent.html"
+                                class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-blue-500/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                                <span>จองรถทันที</span>
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </a>
+                            <a href="tellcontact.html"
+                                class="w-full bg-transparent hover:bg-background-light dark:hover:bg-background-dark border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark font-bold py-3.5 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-lg">chat_bubble</span>
+                                <span>สอบถามข้อมูล</span>
+                            </a>
+                        </div>
+                        <div
+                            class="mt-4 flex items-center justify-center gap-4 text-xs text-text-secondary-light dark:text-text-secondary-dark">
+                            <div class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-base">verified_user</span>
+                                ปลอดภัย 100%
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-base">event_available</span>
+                                ยกเลิกฟรี
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Host Info (Optional) -->
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 border border-border-light dark:border-border-dark flex items-center gap-4">
+                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">business</span>
+                        </div>
+                        <div class="flex-1">
+                            <p
+                                class="text-xs text-text-secondary-light dark:text-text-secondary-dark uppercase font-bold">
+                                ผู้ให้บริการ</p>
+                            <p class="font-bold text-text-main-light dark:text-text-main-dark">Thai Rent A Car</p>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark">chevron_right</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Similar Cars -->
+        <div class="mt-16 mb-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-text-main-light dark:text-text-main-dark">รถยนต์ที่คล้ายกัน</h2>
+                <a class="text-primary font-bold text-sm hover:underline" href="#">ดูทั้งหมด</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden border border-border-light dark:border-border-dark group hover:shadow-lg transition-all">
+                    <div class="aspect-[16/10] bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="White Honda Accord parked"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbL6R1Hf7P_sCiz2q6Yw1xk_QCAwSxIUjxK0ukujbPRvaR_G1ton4jDTMSzwR4QmMYhUZg4ec1Cqs4oQZ3E3ZNmONiF0x1VTyQDQTfLkG0Fugs8b2nsXdAzALfohLIAkRYRhIEBVNLI-cjyhrRp-5LMvc3-8O12RerhahLKTedeIMEUvG3ov1bZP9cV-q1SbfIvnCKH1uSZ3YPDFkBpM5ruhHxi_v1D8wa61h7MRhhHL6Urzql7Is35xiUuVLK9ocymn8YiqD59rfR');">
+                        </div>
+                        <div
+                            class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-0.5 rounded text-xs font-bold text-text-main-light dark:text-text-main-dark">
+                            4.7 <span class="text-yellow-400">★</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mb-1">Sedan</p>
+                        <h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark mb-2 truncate">Honda
+                            Accord 1.5 Turbo</h3>
+                        <div
+                            class="flex items-center gap-3 text-xs text-text-secondary-light dark:text-text-secondary-dark mb-4">
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">settings</span> Auto</span>
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">group</span> 5</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center pt-3 border-t border-border-light dark:border-border-dark">
+                            <div>
+                                <span class="text-primary font-bold text-lg">฿2,200</span>
+                                <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">/
+                                    วัน</span>
+                            </div>
+                            <a href="carrent.html"
+                                class="px-3 py-1.5 rounded bg-primary/10 hover:bg-primary text-primary hover:text-white text-sm font-bold transition-colors">
+                                จอง
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden border border-border-light dark:border-border-dark group hover:shadow-lg transition-all">
+                    <div class="aspect-[16/10] bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Black BMW 3 Series parked"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCh74C8jzfcELc6p40ObBs8Fg1ybTrJAclo79gI2qtshKrDYrJDJZDt1jSvepZ7_4bIFqFNNSSYI4-QHNcLZMkdkqndkTREW7vxdZ8jXno4uYXtwp1tngz4qcUGMJDHhF10aDBY-mjdEfQajO7XVtvFe-HzIjsrUVzNEdcNbD5zcbvktllPoa9K21V0STSiAzYlNbNs-_lrUL80BVZlAyJskVzl9HWqXkbr2OXOWSsVDASqJAlBg2sdeRpA2lEwjeQ9OH7OFWT_7_W4');">
+                        </div>
+                        <div
+                            class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-0.5 rounded text-xs font-bold text-text-main-light dark:text-text-main-dark">
+                            4.9 <span class="text-yellow-400">★</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mb-1">Luxury</p>
+                        <h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark mb-2 truncate">BMW
+                            330e M Sport</h3>
+                        <div
+                            class="flex items-center gap-3 text-xs text-text-secondary-light dark:text-text-secondary-dark mb-4">
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">settings</span> Auto</span>
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">group</span> 5</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center pt-3 border-t border-border-light dark:border-border-dark">
+                            <div>
+                                <span class="text-primary font-bold text-lg">฿4,500</span>
+                                <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">/
+                                    วัน</span>
+                            </div>
+                            <a href="carrent.html"
+                                class="px-3 py-1.5 rounded bg-primary/10 hover:bg-primary text-primary hover:text-white text-sm font-bold transition-colors">
+                                จอง
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden border border-border-light dark:border-border-dark group hover:shadow-lg transition-all">
+                    <div class="aspect-[16/10] bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Grey Nissan Altima front view"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmAGJd-rCq6puvfdejn9RiVJZ2yjcfXr9qhxO3EsGYQ4HCFTsm_HLdxNcPU5Mt3m1P43gl6usXSUYoeSBKkgkvDKSYAv2BFJttlT32Wp5Qy_nS8XTpBNgTD25QVjlDtsRn3wnfsf154jSU_C27NuQUD4ecWOAx8ESBlY14ZONQzlXryPNNMifTuc6cMVbXfS2crVpTGAS2e45e-3L7ofqCn3zDRUFdjxBnTBiYEMqMDjzIKzPGt8J3_B20q2uKCFCYZ_u9NVhXKDCV');">
+                        </div>
+                        <div
+                            class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-0.5 rounded text-xs font-bold text-text-main-light dark:text-text-main-dark">
+                            4.6 <span class="text-yellow-400">★</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mb-1">Sedan</p>
+                        <h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark mb-2 truncate">Nissan
+                            Teana 2.5</h3>
+                        <div
+                            class="flex items-center gap-3 text-xs text-text-secondary-light dark:text-text-secondary-dark mb-4">
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">settings</span> Auto</span>
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">group</span> 5</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center pt-3 border-t border-border-light dark:border-border-dark">
+                            <div>
+                                <span class="text-primary font-bold text-lg">฿1,800</span>
+                                <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">/
+                                    วัน</span>
+                            </div>
+                            <a href="carrent.html"
+                                class="px-3 py-1.5 rounded bg-primary/10 hover:bg-primary text-primary hover:text-white text-sm font-bold transition-colors">
+                                จอง
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden border border-border-light dark:border-border-dark group hover:shadow-lg transition-all">
+                    <div class="aspect-[16/10] bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Red SUV Mazda CX-5"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzlZ53jB8MopCBYy3ID56hfdK9zh780NBMesW8ZPCOC8CvjxCkJredC2zIiQ4hV1YA7eJqCeuAjmqkFH9zhzjVoVFLrp896AwMxmlFBgXY1nbcS28Zyz08Ld_MBzU2hh2GZ5jO56q7QGkdbMsr8aaBXZ-hRFvkgIw9vv5NYt5dT1AJBcdzT0UQgHVrhdfvI9E8T_5O9aT1H7J3-QmLj7LGIEZONf-E5WY6L35-z3L_JZ_BR4bJdwRgG9cc7VjiGBbKJiRO3XjgGsXQ');">
+                        </div>
+                        <div
+                            class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur px-2 py-0.5 rounded text-xs font-bold text-text-main-light dark:text-text-main-dark">
+                            4.8 <span class="text-yellow-400">★</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mb-1">SUV</p>
+                        <h3 class="font-bold text-lg text-text-main-light dark:text-text-main-dark mb-2 truncate">Mazda
+                            CX-5 2.0 S</h3>
+                        <div
+                            class="flex items-center gap-3 text-xs text-text-secondary-light dark:text-text-secondary-dark mb-4">
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">settings</span> Auto</span>
+                            <span class="flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-sm">group</span> 5</span>
+                        </div>
+                        <div
+                            class="flex justify-between items-center pt-3 border-t border-border-light dark:border-border-dark">
+                            <div>
+                                <span class="text-primary font-bold text-lg">฿2,400</span>
+                                <span class="text-xs text-text-secondary-light dark:text-text-secondary-dark">/
+                                    วัน</span>
+                            </div>
+                            <a href="carrent.html"
+                                class="px-3 py-1.5 rounded bg-primary/10 hover:bg-primary text-primary hover:text-white text-sm font-bold transition-colors">
+                                จอง
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/detail.js"></script>
+</body>
+
+</html>

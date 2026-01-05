@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CarRent - Search Results</title>
+    <!-- Material Symbols Link -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS with Config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="css/Searchcar.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white min-h-screen flex flex-col font-display">
+    <!-- TopNavBar -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-gray-800 bg-white/90 dark:bg-[#101922]/90 backdrop-blur-md px-4 sm:px-10 py-3 transition-colors">
+        <div class="flex items-center gap-4 text-[#111418] dark:text-white">
+            <div class="size-8 text-primary">
+                <span class="material-symbols-outlined text-3xl">directions_car</span>
+            </div>
+            <h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2>
+        </div>
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex flex-1 justify-end gap-8">
+            <nav class="flex items-center gap-8">
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="index.html">หน้าหลัก</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="Searchcar.html">รถเช่า</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="index.html#promotions">โปรโมชั่น</a>
+                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+                    href="contact.html">ติดต่อเรา</a>
+            </nav>
+            <div class="flex gap-2">
+                <a href="login.html"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                    <span class="truncate">เข้าสู่ระบบ</span>
+                </a>
+                <a href="register.html"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+                    <span class="truncate">ลงทะเบียน</span>
+                </a>
+            </div>
+        </div>
+        <!-- Mobile Menu Icon -->
+        <div class="lg:hidden">
+            <button class="text-[#111418] dark:text-white p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <!-- Search Modification Bar (Compact Hero) -->
+    <div class="bg-white dark:bg-[#1a202c] border-b border-[#f0f2f4] dark:border-gray-700 py-4 shadow-sm relative z-30">
+        <div class="px-4 md:px-10 max-w-[1400px] mx-auto">
+            <div class="flex flex-col lg:flex-row gap-3 items-end">
+                <!-- Location -->
+                <label class="flex flex-col flex-1 w-full min-w-[200px]">
+                    <span class="text-xs font-semibold text-gray-500 mb-1 ml-1">สถานที่รับรถ</span>
+                    <div
+                        class="flex w-full items-stretch rounded-lg h-12 bg-[#f8fafc] dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-600 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden">
+                        <div class="flex items-center justify-center pl-3 text-[#617589]">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">location_on</span>
+                        </div>
+                        <input
+                            class="w-full bg-transparent border-none focus:ring-0 text-sm px-3 text-[#111418] dark:text-white placeholder:text-[#617589]"
+                            value="สนามบินสุวรรณภูมิ, กรุงเทพฯ" />
+                    </div>
+                </label>
+                <!-- Date Pickers -->
+                <div class="flex flex-1 gap-2 w-full">
+                    <label class="flex flex-col flex-1 min-w-[140px]">
+                        <span class="text-xs font-semibold text-gray-500 mb-1 ml-1">รับรถ</span>
+                        <div
+                            class="flex w-full items-stretch rounded-lg h-12 bg-[#f8fafc] dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-600 overflow-hidden">
+                            <div class="flex items-center justify-center pl-3 text-[#617589]">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">calendar_today</span>
+                            </div>
+                            <input
+                                class="w-full bg-transparent border-none focus:ring-0 text-sm px-2 text-[#111418] dark:text-white"
+                                type="text" value="10/11/2023 10:00" />
+                        </div>
+                    </label>
+                    <label class="flex flex-col flex-1 min-w-[140px]">
+                        <span class="text-xs font-semibold text-gray-500 mb-1 ml-1">คืนรถ</span>
+                        <div
+                            class="flex w-full items-stretch rounded-lg h-12 bg-[#f8fafc] dark:bg-gray-800 border border-[#dbe0e6] dark:border-gray-600 overflow-hidden">
+                            <div class="flex items-center justify-center pl-3 text-[#617589]">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">event</span>
+                            </div>
+                            <input
+                                class="w-full bg-transparent border-none focus:ring-0 text-sm px-2 text-[#111418] dark:text-white"
+                                type="text" value="13/11/2023 10:00" />
+                        </div>
+                    </label>
+                </div>
+                <!-- Search Button -->
+                <button
+                    class="h-12 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 w-full lg:w-auto mt-2 lg:mt-0">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+                    <span>ค้นหาใหม่</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="flex-1 px-4 md:px-10 py-8 max-w-[1400px] mx-auto w-full">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar Filters -->
+            <aside class="w-full lg:w-1/4 flex flex-col gap-6">
+                <div
+                    class="bg-white dark:bg-[#1a202c] p-6 rounded-xl border border-[#f0f2f4] dark:border-gray-700 shadow-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-[#111418] dark:text-white text-lg font-bold">ตัวกรอง</h2>
+                        <button class="text-primary text-sm font-medium hover:underline">ล้างทั้งหมด</button>
+                    </div>
+                    <!-- Price Filter -->
+                    <div class="mb-8">
+                        <h3 class="text-[#111418] dark:text-white text-sm font-bold mb-4">ช่วงราคา (ต่อวัน)</h3>
+                        <div class="relative h-1 bg-[#e5e7eb] rounded-full mb-6">
+                            <div class="absolute left-0 top-0 h-full bg-primary rounded-full"
+                                style="width: 60%; left: 20%;"></div>
+                            <div class="absolute top-1/2 -mt-2 -ml-2 w-4 h-4 rounded-full bg-white border-2 border-primary shadow cursor-pointer"
+                                style="left: 20%;"></div>
+                            <div class="absolute top-1/2 -mt-2 -ml-2 w-4 h-4 rounded-full bg-white border-2 border-primary shadow cursor-pointer"
+                                style="left: 80%;"></div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-[#617589]">
+                            <span>฿500</span>
+                            <span>฿5,000+</span>
+                        </div>
+                    </div>
+                    <!-- Car Type Filter -->
+                    <div class="mb-6">
+                        <h3 class="text-[#111418] dark:text-white text-sm font-bold mb-3">ประเภทรถ</h3>
+                        <div class="flex flex-col gap-3">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input checked=""
+                                    class="w-5 h-5 rounded border-[#dbe0e6] text-primary focus:ring-primary"
+                                    type="checkbox" />
+                                <span
+                                    class="text-[#111418] dark:text-gray-300 text-sm group-hover:text-primary transition-colors">รถอีโคคาร์
+                                    (Eco)</span>
+                                <span class="ml-auto text-xs text-gray-400">12</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input checked=""
+                                    class="w-5 h-5 rounded border-[#dbe0e6] text-primary focus:ring-primary"
+                                    type="checkbox" />
+                                <span
+                                    class="text-[#111418] dark:text-gray-300 text-sm group-hover:text-primary transition-colors">รถเก๋ง
+                                    4 ประตู (Sedan)</span>
+                                <span class="ml-auto text-xs text-gray-400">8</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input class="w-5 h-5 rounded border-[#dbe0e6] text-primary focus:ring-primary"
+                                    type="checkbox" />
+                                <span
+                                    class="text-[#111418] dark:text-gray-300 text-sm group-hover:text-primary transition-colors">รถเอสยูวี
+                                    (SUV)</span>
+                                <span class="ml-auto text-xs text-gray-400">5</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input class="w-5 h-5 rounded border-[#dbe0e6] text-primary focus:ring-primary"
+                                    type="checkbox" />
+                                <span
+                                    class="text-[#111418] dark:text-gray-300 text-sm group-hover:text-primary transition-colors">รถตู้
+                                    (Van)</span>
+                                <span class="ml-auto text-xs text-gray-400">3</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Specs Filter -->
+                    <div class="mb-2">
+                        <h3 class="text-[#111418] dark:text-white text-sm font-bold mb-3">ข้อมูลจำเพาะ</h3>
+                        <div class="flex flex-col gap-3">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input checked=""
+                                    class="w-5 h-5 rounded border-[#dbe0e6] text-primary focus:ring-primary"
+                                    type="checkbox" />
+                                <span
+                                    class="text-[#111418] dark:text-gray-300 text-sm group-hover:text-primary transition-colors">เกียร์อัตโนมัติ</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input class="w-5 h-5 rounded border-[#dbe0e6] text-primary focus:ring-primary"
+                                    type="checkbox" />
+                                <span
+                                    class="text-[#111418] dark:text-gray-300 text-sm group-hover:text-primary transition-colors">เกียร์ธรรมดา</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input class="w-5 h-5 rounded border-[#dbe0e6] text-primary focus:ring-primary"
+                                    type="checkbox" />
+                                <span
+                                    class="text-[#111418] dark:text-gray-300 text-sm group-hover:text-primary transition-colors">รถยนต์ไฟฟ้า
+                                    (EV)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Results List -->
+            <main class="w-full lg:w-3/4">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+                    <h1 class="text-[#111418] dark:text-white text-xl font-bold">พบรถว่าง 28 คัน</h1>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-[#617589]">เรียงตาม:</span>
+                        <select
+                            class="form-select bg-transparent border border-[#dbe0e6] rounded-lg py-1.5 pl-3 pr-8 text-sm focus:border-primary focus:ring-0 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+                            <option>ราคา: ต่ำไปสูง</option>
+                            <option>ราคา: สูงไปต่ำ</option>
+                            <option>ยอดนิยม</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="group flex flex-col bg-white dark:bg-[#1a202c] rounded-xl border border-[#f0f2f4] dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <div class="absolute top-3 left-3 z-10">
+                                <span
+                                    class="inline-flex items-center justify-center rounded-md bg-green-100 px-2.5 py-1 text-xs font-bold text-green-700 ring-1 ring-inset ring-green-600/20">ราคาพิเศษ</span>
+                            </div>
+                            <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Blue Chevrolet sports car parked in a garage"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzWSlUKCgiNFjsnFd1qousBUzgzA3-Hm19rqURUBQA-Vtv_Rg8EjAZ6jfKgp1Mx5Pa5I8-QC8uLo3FY59wVyombCyOMVjZt6Jlbmvv08-25LVRaoQJ3st6wZYUtupbMmQdoQXJ6j2vkGBici99-fvoER4V68qUlAB_wBLkmQxC3PuIRLt4ubndfVRFrCKLueFsadndq_4-PX7FFmTidcjC12f74leavgdCQ54LnFEHU2mQCT64UUB3LP-GQ8TSIoNvC38HneSpY1FV");'>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-[#111418] dark:text-white group-hover:text-primary transition-colors">
+                                        Chevrolet Spark</h3>
+                                    <p class="text-xs text-[#617589]">หรือรุ่นใกล้เคียง</p>
+                                </div>
+                                <div class="p-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                    <span class="material-symbols-outlined block text-[20px]">directions_car</span>
+                                </div>
+                            </div>
+                            <div class="my-4 grid grid-cols-2 gap-y-2 gap-x-4">
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">person</span>
+                                    <span>4 ที่นั่ง</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">work</span>
+                                    <span>2 ใบ</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">settings</span>
+                                    <span>ออโต้</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-gray-400">local_gas_station</span>
+                                    <span>เบนซิน 91</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-auto pt-4 border-t border-[#f0f2f4] dark:border-gray-700 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-[#617589]">รวมทุกอย่างแล้ว</p>
+                                    <p class="text-xl font-bold text-primary">฿850<span
+                                            class="text-sm font-normal text-[#617589] dark:text-gray-400">/วัน</span>
+                                    </p>
+                                </div>
+                                <a href="detail.html?car=spark"
+                                    class="rounded-lg bg-primary hover:bg-primary/90 px-4 py-2 text-sm font-bold text-white transition-colors">
+                                    ดูรายละเอียด  
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="group flex flex-col bg-white dark:bg-[#1a202c] rounded-xl border border-[#f0f2f4] dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="White modern sedan car parked on asphalt"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmashxqV0Q-na1lqLMLSj4hdAruC4VCLKGcbswquWLf9STQb2bDc_u9RC1y1w7hyIs__49NPA8wwdKNVY5nV-Eb4SnhBW_gUcacVypXhnS4GmGs5j6h0whODBxOcnhEHt_YGhXS5vHlC1KsDiZlxbnb7OLyeuf1wDy-HWpeFYAalb93pLpQ53IKGKJHxYtY6A3sFVYQEkax-cRE5nrC_8i5o6iFKQGR8JCYj5oN1jAZ4VNX3KnhAPYOYym7Saw2FPywiVewXc8Nx6d");'>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-[#111418] dark:text-white group-hover:text-primary transition-colors">
+                                        Toyota Vios</h3>
+                                    <p class="text-xs text-[#617589]">หรือรุ่นใกล้เคียง</p>
+                                </div>
+                                <div class="p-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                    <span class="material-symbols-outlined block text-[20px]">directions_car</span>
+                                </div>
+                            </div>
+                            <div class="my-4 grid grid-cols-2 gap-y-2 gap-x-4">
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">person</span>
+                                    <span>5 ที่นั่ง</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">work</span>
+                                    <span>2 ใบใหญ่</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">settings</span>
+                                    <span>ออโต้</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-gray-400">local_gas_station</span>
+                                    <span>E20</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-auto pt-4 border-t border-[#f0f2f4] dark:border-gray-700 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-[#617589]">รวมทุกอย่างแล้ว</p>
+                                    <p class="text-xl font-bold text-primary">฿1,200<span
+                                            class="text-sm font-normal text-[#617589] dark:text-gray-400">/วัน</span>
+                                    </p>
+                                </div>
+                                <a href="detail.html?car=vios"
+                                    class="rounded-lg bg-primary hover:bg-primary/90 px-4 py-2 text-sm font-bold text-white transition-colors">
+                                    ดูรายละเอียด
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="group flex flex-col bg-white dark:bg-[#1a202c] rounded-xl border border-[#f0f2f4] dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <div class="absolute top-3 left-3 z-10">
+                                <span
+                                    class="inline-flex items-center justify-center rounded-md bg-blue-100 px-2.5 py-1 text-xs font-bold text-blue-700 ring-1 ring-inset ring-blue-600/20">ยอดนิยม</span>
+                            </div>
+                            <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Silver SUV car on a road trip"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAppJiw5eBPqfWVMNnGHrBbroIt0filFFavNmM3-TLDw4sEEObGG_kcl6qQ-_Xr6ee5cm2_T_k2bBN50Lgooh1qSphMj0BO4IVHNlSexN3aULhGsVpAw2gK2gTb_Obx93RikYirBjIeRAHXulwG0x5Lz3lvCpqyv3BxL_PlxTOb4gjflA0ZOyE6ElbOgVtPL76_ZFUGpKnDtehYml0-6E0XMqMSlTBRLb8a1uU-8p9FPv3LjI9b8Z8Gqv8TaQsBB1YItZt4112wpY8j");'>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-[#111418] dark:text-white group-hover:text-primary transition-colors">
+                                        Honda HR-V</h3>
+                                    <p class="text-xs text-[#617589]">หรือรุ่นใกล้เคียง</p>
+                                </div>
+                                <div class="p-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                    <span class="material-symbols-outlined block text-[20px]">airport_shuttle</span>
+                                </div>
+                            </div>
+                            <div class="my-4 grid grid-cols-2 gap-y-2 gap-x-4">
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">person</span>
+                                    <span>5 ที่นั่ง</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">work</span>
+                                    <span>3 ใบ</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">settings</span>
+                                    <span>ออโต้</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">ev_station</span>
+                                    <span>Hybrid</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-auto pt-4 border-t border-[#f0f2f4] dark:border-gray-700 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-[#617589]">รวมทุกอย่างแล้ว</p>
+                                    <p class="text-xl font-bold text-primary">฿1,850<span
+                                            class="text-sm font-normal text-[#617589] dark:text-gray-400">/วัน</span>
+                                    </p>
+                                </div>
+                                <a href="detail.html?car=hrv"
+                                    class="rounded-lg bg-primary hover:bg-primary/90 px-4 py-2 text-sm font-bold text-white transition-colors">
+                                    ดูรายละเอียด
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="group flex flex-col bg-white dark:bg-[#1a202c] rounded-xl border border-[#f0f2f4] dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Black luxury sedan car front view"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCN8P6hV-zAo4BL7boEgRLUBun5X3VqyiZvdJiN-csblv9m98P8YfH-2xyng_riAXaB8bUUCVRxCzbg3UldC1EonNXXAYbDIAe8cq6UDuuEaNFo9y_DtLwN_mT_5y8dQeuo7JBvf_39oSL7O3mIBbPnYCWil-Fa6HEIkEm9b_If9mkPz9Jmmmn4KU-5v1Q0WC5ODvTAcg7KU109NetrB59h_PBGFULfJAIl_Bey9z2ljctbVyVv0g8HAlUb73vSrDP4UpCYkwhmAgTe");'>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-[#111418] dark:text-white group-hover:text-primary transition-colors">
+                                        BMW Series 3</h3>
+                                    <p class="text-xs text-[#617589]">หรือรุ่นใกล้เคียง</p>
+                                </div>
+                                <div class="p-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                    <span class="material-symbols-outlined block text-[20px]">diamond</span>
+                                </div>
+                            </div>
+                            <div class="my-4 grid grid-cols-2 gap-y-2 gap-x-4">
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">person</span>
+                                    <span>5 ที่นั่ง</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">work</span>
+                                    <span>2 ใบใหญ่</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">settings</span>
+                                    <span>ออโต้</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-gray-400">local_gas_station</span>
+                                    <span>ดีเซล</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-auto pt-4 border-t border-[#f0f2f4] dark:border-gray-700 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-[#617589]">รวมทุกอย่างแล้ว</p>
+                                    <p class="text-xl font-bold text-primary">฿4,500<span
+                                            class="text-sm font-normal text-[#617589] dark:text-gray-400">/วัน</span>
+                                    </p>
+                                </div>
+                                <a href="detail.html?car=bmw3"
+                                    class="rounded-lg bg-primary hover:bg-primary/90 px-4 py-2 text-sm font-bold text-white transition-colors">
+                                    ดูรายละเอียด
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="group flex flex-col bg-white dark:bg-[#1a202c] rounded-xl border border-[#f0f2f4] dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="White Tesla Model 3 electric car"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8hv5Wndbs5iFNYWFHVhklGN7XbAz_fgaMtc5zU00frSW3e8JVTVTGLX70hs6BwXsz67dA_jeQmvCcPH59-OnjzWbi_1RQ8-0ZuVyX8XO7-6hHA8d2AbOTiKsS2aBIZ_RElLFKun2golZifYEc_rpy4TSVY54qiUuMWfM7gh7FD4zLmo9srIk3X7iVdYvnVeo3tRmrHLX1-F6wEcZwvcjp4Mmi-XN5EdLNItIeB4HXIZ6qiDQiGpagmOHK66wNB7n8yIyZbzj9q0Jw");'>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-[#111418] dark:text-white group-hover:text-primary transition-colors">
+                                        Tesla Model 3</h3>
+                                    <p class="text-xs text-[#617589]">หรือรุ่นใกล้เคียง</p>
+                                </div>
+                                <div class="p-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                    <span class="material-symbols-outlined block text-[20px]">electric_car</span>
+                                </div>
+                            </div>
+                            <div class="my-4 grid grid-cols-2 gap-y-2 gap-x-4">
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">person</span>
+                                    <span>5 ที่นั่ง</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">work</span>
+                                    <span>2 ใบ (หน้า/หลัง)</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">settings</span>
+                                    <span>ออโต้</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">bolt</span>
+                                    <span>ไฟฟ้า 100%</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-auto pt-4 border-t border-[#f0f2f4] dark:border-gray-700 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-[#617589]">รวมทุกอย่างแล้ว</p>
+                                    <p class="text-xl font-bold text-primary">฿3,200<span
+                                            class="text-sm font-normal text-[#617589] dark:text-gray-400">/วัน</span>
+                                    </p>
+                                </div>
+                                <a href="detail.html?car=tesla3"
+                                    class="rounded-lg bg-primary hover:bg-primary/90 px-4 py-2 text-sm font-bold text-white transition-colors">
+                                    ดูรายละเอียด
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="group flex flex-col bg-white dark:bg-[#1a202c] rounded-xl border border-[#f0f2f4] dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Large family van silver color"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDW3EYNrPg_RCnLPj-W24qleiP2RWUMQhvfX_lUMqWIDsmeH2V117Irgatr99DSdxtXcAdnjX_bCspBYcJtWFiddFTNrxQXt40zr8eDYqc4Eg2HPqh6_CW1-yipr2jcud1ZvzUAN7I4HJUUrbVehl_lu-FW7rdcwzFw_Gk2uVE8hjDL4doA_AR3UKBWebril4z59lAf_bDYuLofRTJEnh75oJk8F6b7-X_qKDDHAQ869qGzoXb02Llj60S7n_wicXDKMq2BH8ZnBpcw");'>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-[#111418] dark:text-white group-hover:text-primary transition-colors">
+                                        Toyota Commuter</h3>
+                                    <p class="text-xs text-[#617589]">หรือรุ่นใกล้เคียง</p>
+                                </div>
+                                <div class="p-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-primary">
+                                    <span class="material-symbols-outlined block text-[20px]">groups</span>
+                                </div>
+                            </div>
+                            <div class="my-4 grid grid-cols-2 gap-y-2 gap-x-4">
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">person</span>
+                                    <span>11 ที่นั่ง</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">work</span>
+                                    <span>4 ใบใหญ่</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-[18px] text-gray-400">settings</span>
+                                    <span>ธรรมดา</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-[#4e5d78] dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-gray-400">local_gas_station</span>
+                                    <span>ดีเซล</span>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-auto pt-4 border-t border-[#f0f2f4] dark:border-gray-700 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-[#617589]">รวมทุกอย่างแล้ว</p>
+                                    <p class="text-xl font-bold text-primary">฿2,500<span
+                                            class="text-sm font-normal text-[#617589] dark:text-gray-400">/วัน</span>
+                                    </p>
+                                </div>
+                                <a href="detail.html?car=commuter"
+                                    class="rounded-lg bg-primary hover:bg-primary/90 px-4 py-2 text-sm font-bold text-white transition-colors">
+                                    ดูรายละเอียด
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="mt-10 flex justify-center">
+                    <button
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-white dark:bg-[#1a202c] border border-[#dbe0e6] dark:border-gray-700 text-[#111418] dark:text-white text-sm font-bold leading-normal hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="truncate">โหลดเพิ่มเติม</span>
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/Searchcar.js"></script>
+</body>
+
+</html>

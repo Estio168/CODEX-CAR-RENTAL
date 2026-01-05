@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>เกี่ยวกับเรา - CarRental Co</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Noto+Sans+Thai:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="css/contact.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div
+        class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden text-slate-900 dark:text-white font-display">
+        <!-- TopNavBar -->
+        <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] bg-white dark:bg-[#1a202c] dark:border-gray-700 px-4 md:px-10 py-3 shadow-sm">
+            <div class="flex items-center gap-4 text-[#111418] dark:text-white">
+                <div class="size-8 text-primary">
+                    <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <a href="index.html"><h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">CarRent</h2></a>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-8">
+                <div class="flex items-center gap-6">
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">หน้าแรก</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="Searchcar.html">ค้นหารถ</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html#promotions">โปรโมชั่น</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="tellcontact.html">ช่วยเหลือ</a>
+                </div>
+                <div class="flex gap-2">
+                    <a href="login.html"
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                        <span class="truncate">เข้าสู่ระบบ</span>
+                    </a>
+                    <a href="register.html"
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+                        <span class="truncate">ลงทะเบียน</span>
+                    </a>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <span class="material-symbols-outlined cursor-pointer">menu</span>
+            </div>
+        </header>
+        <!-- HeroSection -->
+        <div class="layout-container flex w-full flex-col">
+            <div class="@container w-full">
+                <div class="relative flex min-h-[500px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-center justify-center p-8 md:p-16"
+                    data-alt="Modern fleet of cars parked on a scenic road with mountains in background"
+                    style='background-image: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCduxQPviLOk6JhX6BTDAwc3M-tXUDqmdNk8bkdi3IWJy1jhP7z82cV2w2XzH6na8dLknShUutRjz-KdCvgWLOFQ2DyOb2x3LIP3D30FSNSRnCPI_dO1Y-2enEm9H7IIb9e7__ErrdzPuLgO5iy8Bb48eh8tpnkkQ_ngPollHISLhFZ86nvJ3wTuGHb_6ombw0OA8HWIEl0NllmhzzeBVRnqfghEPo5D5Ysss6pF3VOJPxXK0XWYi-PCpgkA3UL0NU_dna06jn_wXZT");'>
+                    <div class="flex flex-col gap-4 text-center max-w-[800px] z-10 animate-fade-in-up">
+                        <span
+                            class="text-primary font-bold tracking-wider uppercase text-sm md:text-base">เกี่ยวกับเรา</span>
+                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl">
+                            ขับเคลื่อนทุกการเดินทางของคุณ<br />อย่างมั่นใจตั้งแต่ปี 2015
+                        </h1>
+                        <h2
+                            class="text-slate-200 text-base font-normal leading-relaxed md:text-xl max-w-[640px] mx-auto">
+                            มากกว่าแค่บริการเช่ารถ เราคือเพื่อนร่วมเดินทางที่พร้อมดูแลให้ทุกทริปของคุณราบรื่น ปลอดภัย
+                            และเต็มไปด้วยความทรงจำดีๆ
+                        </h2>
+                        <div class="mt-4 flex justify-center gap-4">
+                            <a href="tellcontact.html"
+                                class="flex h-12 min-w-[120px] cursor-pointer items-center justify-center rounded-lg bg-primary px-6 text-white text-base font-bold transition hover:bg-blue-600 shadow-lg">
+                                ติดต่อเรา
+                            </a>
+                            <a href="Searchcar.html"
+                                class="flex h-12 min-w-[120px] cursor-pointer items-center justify-center rounded-lg bg-white/10 backdrop-blur-md border border-white/30 px-6 text-white text-base font-bold transition hover:bg-white/20">
+                                ดูรถเช่าของเรา
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Stats Section -->
+        <div
+            class="flex justify-center bg-white dark:bg-slate-900 py-10 border-b border-slate-100 dark:border-slate-800">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1 px-4 md:px-0">
+                <div class="flex flex-wrap gap-4 md:gap-8 justify-center">
+                    <div
+                        class="flex min-w-[140px] flex-1 flex-col items-center gap-2 rounded-xl p-6 bg-background-light dark:bg-slate-800 border border-[#dbe0e6] dark:border-slate-700 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="text-primary mb-2">
+                            <span class="material-symbols-outlined text-4xl">directions_car</span>
+                        </div>
+                        <p class="text-[#111418] dark:text-white tracking-light text-3xl font-bold leading-tight">500+
+                        </p>
+                        <p
+                            class="text-[#617589] dark:text-slate-400 text-sm font-medium leading-normal uppercase tracking-wider">
+                            รถยนต์ในระบบ</p>
+                    </div>
+                    <div
+                        class="flex min-w-[140px] flex-1 flex-col items-center gap-2 rounded-xl p-6 bg-background-light dark:bg-slate-800 border border-[#dbe0e6] dark:border-slate-700 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="text-primary mb-2">
+                            <span class="material-symbols-outlined text-4xl">sentiment_satisfied</span>
+                        </div>
+                        <p class="text-[#111418] dark:text-white tracking-light text-3xl font-bold leading-tight">
+                            50,000+</p>
+                        <p
+                            class="text-[#617589] dark:text-slate-400 text-sm font-medium leading-normal uppercase tracking-wider">
+                            ลูกค้าที่ไว้วางใจ</p>
+                    </div>
+                    <div
+                        class="flex min-w-[140px] flex-1 flex-col items-center gap-2 rounded-xl p-6 bg-background-light dark:bg-slate-800 border border-[#dbe0e6] dark:border-slate-700 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="text-primary mb-2">
+                            <span class="material-symbols-outlined text-4xl">history</span>
+                        </div>
+                        <p class="text-[#111418] dark:text-white tracking-light text-3xl font-bold leading-tight">8+</p>
+                        <p
+                            class="text-[#617589] dark:text-slate-400 text-sm font-medium leading-normal uppercase tracking-wider">
+                            ปีแห่งประสบการณ์</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FeatureSection (Core Values) -->
+        <div class="flex flex-1 justify-center py-16 px-4 md:px-40 bg-background-light dark:bg-background-dark">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <div class="flex flex-col gap-10">
+                    <div class="flex flex-col gap-4 text-center items-center">
+                        <span class="text-primary font-bold tracking-wider text-sm uppercase">ค่านิยมของเรา</span>
+                        <h2
+                            class="text-[#111418] dark:text-white text-[32px] font-bold leading-tight md:text-4xl max-w-[720px]">
+                            มุ่งมั่นสู่ความเป็นเลิศในทุกเส้นทาง
+                        </h2>
+                        <p
+                            class="text-[#617589] dark:text-slate-400 text-base font-normal leading-normal max-w-[720px]">
+                            เราขับเคลื่อนองค์กรด้วยความตั้งใจที่จะมอบประสบการณ์ที่ดีที่สุดให้กับลูกค้า
+                            ผ่านมาตรฐานความปลอดภัยและการบริการที่เหนือระดับ
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Vision -->
+                        <div
+                            class="flex flex-col gap-4 rounded-xl border border-[#dbe0e6] dark:border-slate-700 bg-white dark:bg-slate-800 p-8 shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="text-primary bg-primary/10 w-12 h-12 flex items-center justify-center rounded-lg">
+                                <span class="material-symbols-outlined text-2xl">visibility</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">วิสัยทัศน์
+                                </h3>
+                                <p class="text-[#617589] dark:text-slate-400 text-sm font-normal leading-relaxed">
+                                    เป็นผู้นำด้านการให้บริการเช่ารถที่เชื่อมต่อผู้คนกับสถานที่ต่างๆ ได้อย่างไร้รอยต่อ
+                                    ครอบคลุมทุกภูมิภาคของไทย
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Mission -->
+                        <div
+                            class="flex flex-col gap-4 rounded-xl border border-[#dbe0e6] dark:border-slate-700 bg-white dark:bg-slate-800 p-8 shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="text-primary bg-primary/10 w-12 h-12 flex items-center justify-center rounded-lg">
+                                <span class="material-symbols-outlined text-2xl">track_changes</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">พันธกิจ</h3>
+                                <p class="text-[#617589] dark:text-slate-400 text-sm font-normal leading-relaxed">
+                                    ส่งมอบรถยนต์ที่สะอาด ปลอดภัย และราคาเข้าถึงได้
+                                    พร้อมด้วยบริการที่เป็นมิตรและจริงใจในทุกการเดินทาง
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Promise -->
+                        <div
+                            class="flex flex-col gap-4 rounded-xl border border-[#dbe0e6] dark:border-slate-700 bg-white dark:bg-slate-800 p-8 shadow-sm hover:shadow-md transition-shadow">
+                            <div
+                                class="text-primary bg-primary/10 w-12 h-12 flex items-center justify-center rounded-lg">
+                                <span class="material-symbols-outlined text-2xl">handshake</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">คำมั่นสัญญา
+                                </h3>
+                                <p class="text-[#617589] dark:text-slate-400 text-sm font-normal leading-relaxed">
+                                    บริการช่วยเหลือฉุกเฉิน 24 ชั่วโมง ราคาที่โปร่งใสไม่มีบวกเพิ่ม
+                                    และรถที่พร้อมใช้งานเสมอเมื่อคุณต้องการ
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Timeline Section -->
+        <div class="flex flex-1 justify-center py-16 px-4 md:px-40 bg-white dark:bg-slate-900">
+            <div class="layout-content-container flex flex-col max-w-[800px] flex-1">
+                <div class="mb-10 text-center">
+                    <h2 class="text-[#111418] dark:text-white text-[28px] font-bold leading-tight md:text-3xl">
+                        เส้นทางความสำเร็จของเรา
+                    </h2>
+                </div>
+                <div class="grid grid-cols-[60px_1fr] gap-x-4 md:gap-x-8">
+                    <!-- Item 1 -->
+                    <div class="flex flex-col items-center gap-1 pt-2">
+                        <div class="text-primary bg-primary/10 p-2 rounded-full">
+                            <span class="material-symbols-outlined text-2xl">flag</span>
+                        </div>
+                        <div class="w-[2px] bg-[#dbe0e6] dark:bg-slate-700 h-full grow my-2"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col py-2 pb-8">
+                        <span class="text-primary font-bold text-sm mb-1">2015</span>
+                        <h3 class="text-[#111418] dark:text-white text-lg font-bold leading-normal">
+                            ก่อตั้งบริษัทที่กรุงเทพฯ</h3>
+                        <p class="text-[#617589] dark:text-slate-400 text-base font-normal leading-normal mt-1">
+                            เริ่มต้นด้วยรถเพียง 10 คัน และความมุ่งมั่นที่จะให้บริการเช่ารถที่ง่ายและรวดเร็วที่สุด</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="flex flex-col items-center gap-1">
+                        <div class="w-[2px] bg-[#dbe0e6] dark:bg-slate-700 h-4"></div>
+                        <div class="text-primary bg-primary/10 p-2 rounded-full">
+                            <span class="material-symbols-outlined text-2xl">map</span>
+                        </div>
+                        <div class="w-[2px] bg-[#dbe0e6] dark:bg-slate-700 h-full grow my-2"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col py-2 pb-8">
+                        <span class="text-primary font-bold text-sm mb-1">2017</span>
+                        <h3 class="text-[#111418] dark:text-white text-lg font-bold leading-normal">ขยายสาขาสู่เชียงใหม่
+                        </h3>
+                        <p class="text-[#617589] dark:text-slate-400 text-base font-normal leading-normal mt-1">
+                            รองรับนักท่องเที่ยวที่ต้องการสัมผัสบรรยากาศภาคเหนือ ด้วยสาขาใหม่ใจกลางเมืองเชียงใหม่</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="flex flex-col items-center gap-1">
+                        <div class="w-[2px] bg-[#dbe0e6] dark:bg-slate-700 h-4"></div>
+                        <div class="text-primary bg-primary/10 p-2 rounded-full">
+                            <span class="material-symbols-outlined text-2xl">diamond</span>
+                        </div>
+                        <div class="w-[2px] bg-[#dbe0e6] dark:bg-slate-700 h-full grow my-2"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col py-2 pb-8">
+                        <span class="text-primary font-bold text-sm mb-1">2019</span>
+                        <h3 class="text-[#111418] dark:text-white text-lg font-bold leading-normal">เปิดตัวบริการ
+                            Premium Fleet</h3>
+                        <p class="text-[#617589] dark:text-slate-400 text-base font-normal leading-normal mt-1">
+                            ยกระดับการเดินทางด้วยรถยนต์หรูและรถสปอร์ต สำหรับโอกาสพิเศษและลูกค้า VIP</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="flex flex-col items-center gap-1 pb-2">
+                        <div class="w-[2px] bg-[#dbe0e6] dark:bg-slate-700 h-4"></div>
+                        <div class="text-primary bg-primary/10 p-2 rounded-full">
+                            <span class="material-symbols-outlined text-2xl">emoji_events</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col py-2">
+                        <span class="text-primary font-bold text-sm mb-1">2023</span>
+                        <h3 class="text-[#111418] dark:text-white text-lg font-bold leading-normal">
+                            ได้รับรางวัลบริการเช่ารถยอดเยี่ยม</h3>
+                        <p class="text-[#617589] dark:text-slate-400 text-base font-normal leading-normal mt-1">
+                            รางวัลแห่งความภาคภูมิใจจากการโหวตของผู้ใช้งานจริงกว่าหมื่นคน</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team Section -->
+        <div class="flex flex-1 justify-center py-16 px-4 md:px-40 bg-background-light dark:bg-background-dark">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <div class="flex flex-col gap-4 text-center items-center mb-12">
+                    <h2 class="text-[#111418] dark:text-white text-3xl font-bold leading-tight">พบกับทีมงานของเรา</h2>
+                    <p class="text-[#617589] dark:text-slate-400 text-base">ผู้เชี่ยวชาญที่พร้อมดูแลคุณในทุกขั้นตอน</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Member 1 -->
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div
+                            class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
+                            <img alt="Somchai CEO" class="w-full h-full object-cover"
+                                data-alt="Portrait of Somchai, the CEO, wearing a suit and smiling"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbKFvgku7lW26Dwhbx-dHhSsdhNT7LyCP54IVk1UxswZ-k4oEtFF1vb8N-HonulJJWd_7x5H-OGyVyXTjQD5t5pnS-W6r0AEYHfK8AzHB1jgcEKGL8Ri0tZ5S_qGnfhkdCRpTzdGaV5zve-ixN4IQjL03LIVcwSrNzfFgMcK-HnJOUffy301bDrVcSjJPNz486xIW6zn2Zm-mUGm37RYe2nthgThENGdqvNatEgWbS0mLV6ZQqnQNqf-HKm0wAv7oHcN118ut78JFJ" />
+                        </div>
+                        <div>
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">สมชาย มั่นคง</h3>
+                            <p class="text-primary text-sm font-medium">CEO &amp; Founder</p>
+                        </div>
+                    </div>
+                    <!-- Member 2 -->
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div
+                            class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
+                            <img alt="Vipada Ops" class="w-full h-full object-cover"
+                                data-alt="Portrait of Vipada, Head of Operations, wearing professional attire"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGXmyEsbFHaivcRQ6vqv5y0DgfEbvhN04yJIerKojB13hnrvUmPYAw8fYTiwOc-P8DvzQ22djy9k4GCFf09rv5-KoyviKnYARNGzJH3erg82Bt9d4e6ACTe1xQEeAXoYf31BIpW6ZY04_6R2krUIb5VGWXGaPEVLvaqlfFqTWakVgY7mf_uFryfgPvKy_wO7lH-hYNsNDebYVWWYkeqaNdZLNlz729o07iYH-XpvsZmVMX9ASnLchKjTQsCF5ST8rUOScIEkxOs-z-" />
+                        </div>
+                        <div>
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">วิภาดา ใจดี</h3>
+                            <p class="text-primary text-sm font-medium">Head of Operations</p>
+                        </div>
+                    </div>
+                    <!-- Member 3 -->
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div
+                            class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
+                            <img alt="Nattapol Fleet" class="w-full h-full object-cover"
+                                data-alt="Portrait of Nattapol, Fleet Manager, smiling"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAkBI9ch0QIbifEGLE_gcuOIs9RClNOpLGCnCaJh_uSqyztZCTEZFLD3xccBqJfWtlehpDC9sz7WN7IY_uHx0qIMlJSR8x4lGANmfim20ZDJMcAM5aoQWpJ5-qakkw4Xts_Idv95KEeK5Vm5jnpM69kg-LURdt8ZPYLK-dSNllzQ0XqVmKrcfdtqGFeGxUw0pxsygbE3k2Yvguyj8PPm5k89NDu3C6re-0ffblj9fPoiG7ovOZ9QG9bPFztQ4BlfpgU26ScDwtQXSC" />
+                        </div>
+                        <div>
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">ณัฐพล ขับขี่ปลอดภัย</h3>
+                            <p class="text-primary text-sm font-medium">Fleet Manager</p>
+                        </div>
+                    </div>
+                    <!-- Member 4 -->
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div
+                            class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
+                            <img alt="Pim Service" class="w-full h-full object-cover"
+                                data-alt="Portrait of Pim, Customer Service Lead, smiling brightly"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANeV7-WiitA_aISPzYZX_jZYBwwz-aBWZ43M9LB6KuCXbYF2AFmq-QN5J6l-EWM29xRqqw1YEbhoGGrLXf5CSKLLYuzo7kl2dQkJBfH7oIp6x19S-Wl2N95O8jho0e3j_b0QlA7DHfv29UMlijMurskjmpGv9jeMu9L-89Zacn_wwogjXeSvKHbLTclb83zB0cCSSmI5XNb0t7IZL8h4jrdePcNi8WXSCkNo2m7uHmQh3wBpBlkgkoxT3Lw1qaxVzGk_AoQpq_K1u8" />
+                        </div>
+                        <div>
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">พิมพา บริการ</h3>
+                            <p class="text-primary text-sm font-medium">Customer Service Lead</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonials -->
+        <div
+            class="flex flex-1 justify-center py-16 px-4 md:px-40 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <div class="flex flex-col gap-4 text-center items-center mb-10">
+                    <span class="text-primary font-bold tracking-wider text-sm uppercase">เสียงตอบรับ</span>
+                    <h2 class="text-[#111418] dark:text-white text-3xl font-bold leading-tight">ความประทับใจจากลูกค้า
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Review 1 -->
+                    <div
+                        class="bg-background-light dark:bg-slate-800 p-6 rounded-xl border border-[#dbe0e6] dark:border-slate-700 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex text-yellow-400 mb-3 gap-1">
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            </div>
+                            <p class="text-[#111418] dark:text-slate-200 text-sm leading-relaxed mb-6">"ประทับใจมากค่ะ
+                                รถสะอาด ใหม่ และพนักงานสุภาพมาก ขั้นตอนการจองง่าย ไม่ยุ่งยาก จะกลับมาใช้บริการอีกแน่นอน"
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
+                                <img alt="User 1" class="w-full h-full object-cover"
+                                    data-alt="Small avatar of a female customer"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuARdz425NaATkuGFHRmJT8cHMNOiIQtFm9yF0ixv6dEbfEjrM_uFWNtZqpfch_zvF9XoDINc1QRiFiDrL4l9sQGIXKJEhh5ox6iB8jTl7L8Q1SAly-FWfaTr3on1jkTWCiA8O0KKhpIM79_UOsegsaJgRwTGKIObO4IRFmNn5k2Xp1JFU4lOXES9a7Sj2AeKZfXii5tq3WkO-ifKe7HXo-zS3eFwaTYibsWuudiOAfvynKWvGagSkJC0jl8a4-6-_NJ83mbSH3C55q3" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-[#111418] dark:text-white">คุณนารีรัตน์</p>
+                                <p class="text-xs text-[#617589] dark:text-slate-400">เช่าขับที่เชียงใหม่</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div
+                        class="bg-background-light dark:bg-slate-800 p-6 rounded-xl border border-[#dbe0e6] dark:border-slate-700 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex text-yellow-400 mb-3 gap-1">
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            </div>
+                            <p class="text-[#111418] dark:text-slate-200 text-sm leading-relaxed mb-6">
+                                "ราคาดีมากเมื่อเทียบกับคุณภาพรถ บริการรับ-ส่งรถตรงเวลา
+                                ทำให้ทริปธุรกิจของผมราบรื่นมากครับ"</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
+                                <img alt="User 2" class="w-full h-full object-cover"
+                                    data-alt="Small avatar of a male customer"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEtiHpbOtZA7A7vdxV0sbRXfFTsMO6U53hbB0lYW5hEbNLvGOR8W2088gR6M7b90e4DFULdrXfqiYwVFJ2sMgYUTaKWQgd9iKCY7otbJgsCdD0v8DPLSxlsCMqivJ2ODtcIjpo5s9CRGBvzWBWss4wgZCYPtyVaqYDPD4PpCN5zPqoKBR4IOEzMA9ui_uq0Ci1pnNN6YVdS2z7Bh3U3OXjkFxqMVGtyVLzTLpolpqTmoj-ra5kaXy2R6jAEiqVF1VMSZNmmQjTAP50" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-[#111418] dark:text-white">คุณศุภชัย</p>
+                                <p class="text-xs text-[#617589] dark:text-slate-400">เช่าขับที่กรุงเทพฯ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div
+                        class="bg-background-light dark:bg-slate-800 p-6 rounded-xl border border-[#dbe0e6] dark:border-slate-700 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex text-yellow-400 mb-3 gap-1">
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star</span>
+                                <span class="material-symbols-outlined text-sm fill-current">star_half</span>
+                            </div>
+                            <p class="text-[#111418] dark:text-slate-200 text-sm leading-relaxed mb-6">
+                                "ชอบที่มีรถให้เลือกหลากหลาย และเงื่อนไขการเช่าชัดเจน ไม่มีค่าใช้จ่ายแอบแฝง
+                                ไว้ใจได้เลยครับ"</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
+                                <img alt="User 3" class="w-full h-full object-cover"
+                                    data-alt="Small avatar of a male customer with glasses"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0l6tH5MgUCouA5S4UaP-lGM6H6cE-IQW_jjgWKKWRe-Trxr8029yONRoQQaskUc49lcnvRoxBoEka6CdUJVQF4sc_47MELaJmc1jArIlPXWR9-wz2wrxTveVS7K4mT5RfKBk5lACgyfDidINNAhFz_sLETzOx-o6FRHUwKqqXpRposr9DTJB1PFB6vMd8nTtnyaaYw_ZiFpCVShWd4ouyfht60Js-zDua_CaVS5PHwd9HpCwen57_qLP6xt3EBFrMzEUrQeNhAo2x" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-[#111418] dark:text-white">คุณอานนท์</p>
+                                <p class="text-xs text-[#617589] dark:text-slate-400">เช่าขับที่ภูเก็ต</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CTA Section -->
+        <div class="bg-primary py-16 px-4 text-center">
+            <h2 class="text-white text-3xl font-bold mb-4">พร้อมออกเดินทางครั้งต่อไปหรือยัง?</h2>
+            <p class="text-white/80 max-w-2xl mx-auto mb-8 text-lg">เลือกรถที่ใช่สำหรับคุณ
+                แล้วเริ่มต้นการเดินทางที่แสนพิเศษได้ทันที</p>
+            <a href="Searchcar.html"
+                class="inline-block bg-white text-primary font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-slate-100 transition-colors">
+                จองรถเลย
+            </a>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pt-16 pb-8 px-10">
+            <div class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between gap-10">
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-2 text-[#111418] dark:text-white">
+                        <div class="size-6 text-primary">
+                            <span class="material-symbols-outlined">directions_car</span>
+                        </div>
+                        <h2 class="text-lg font-bold">CarRental Co</h2>
+                    </div>
+                    <p class="text-[#617589] dark:text-slate-400 text-sm max-w-[300px]">เพื่อนร่วมเดินทางที่คุณวางใจได้
+                        ให้บริการเช่ารถคุณภาพสูงครอบคลุมทั่วไทย</p>
+                </div>
+                <div class="flex gap-10 md:gap-20">
+                    <div class="flex flex-col gap-3">
+                        <h3 class="font-bold text-[#111418] dark:text-white">บริษัท</h3>
+                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
+                            href="#">เกี่ยวกับเรา</a>
+                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
+                            href="#">ร่วมงานกับเรา</a>
+                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary" href="#">ข่าวสาร</a>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <h3 class="font-bold text-[#111418] dark:text-white">ช่วยเหลือ</h3>
+                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
+                            href="#">ศูนย์ช่วยเหลือ</a>
+                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
+                            href="#">เงื่อนไขการใช้บริการ</a>
+                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
+                            href="#">นโยบายความเป็นส่วนตัว</a>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <h3 class="font-bold text-[#111418] dark:text-white">ติดตามเรา</h3>
+                        <div class="flex gap-4">
+                            <a class="text-[#617589] dark:text-slate-400 hover:text-primary" href="#"><span
+                                    class="material-symbols-outlined">public</span></a>
+                            <a class="text-[#617589] dark:text-slate-400 hover:text-primary" href="#"><span
+                                    class="material-symbols-outlined">share</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-100 dark:border-slate-800 mt-12 pt-8 text-center">
+                <p class="text-[#617589] dark:text-slate-500 text-sm">© 2023 CarRental Co. สงวนลิขสิทธิ์.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/contact.js"></script>
+</body>
+
+</html>
