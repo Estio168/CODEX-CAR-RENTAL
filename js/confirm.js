@@ -38,7 +38,9 @@ function getBookingDataFromURL() {
         pickup: urlParams.get('pickup') || 'สนามบินสุวรรณภูมิ',
         dropoff: urlParams.get('dropoff') || 'สนามบินสุวรรณภูมิ',
         pickupDate: urlParams.get('pickupDate') || '',
-        returnDate: urlParams.get('returnDate') || ''
+        returnDate: urlParams.get('returnDate') || '',
+        pickupTime: urlParams.get('pickupTime') || '10:00',
+        returnTime: urlParams.get('returnTime') || '18:00'
     };
 }
 
@@ -50,6 +52,14 @@ function formatThaiDate(dateString) {
     const month = thaiMonths[date.getMonth()];
     const year = date.getFullYear() + 543;
     return `${day} ${month} ${year}`;
+}
+
+function formatTime(timeString) {
+    if (!timeString) return '';
+    const [hours, minutes] = timeString.split(':');
+    const hour = parseInt(hours);
+    const ampm = hour >= 12 ? 'น.' : 'น.';
+    return `${timeString} ${ampm}`;
 }
 
 function updateConfirmDetails() {
@@ -130,12 +140,16 @@ function updateConfirmDetails() {
     
     const pickupDateEl = document.getElementById('confirm-pickup-date');
     if (pickupDateEl && bookingData.pickupDate) {
-        pickupDateEl.textContent = formatThaiDate(bookingData.pickupDate);
+        const pickupDateStr = formatThaiDate(bookingData.pickupDate);
+        const pickupTimeStr = bookingData.pickupTime || '10:00';
+        pickupDateEl.textContent = `${pickupDateStr}, ${pickupTimeStr} น.`;
     }
     
     const dropoffDateEl = document.getElementById('confirm-dropoff-date');
     if (dropoffDateEl && bookingData.returnDate) {
-        dropoffDateEl.textContent = formatThaiDate(bookingData.returnDate);
+        const dropoffDateStr = formatThaiDate(bookingData.returnDate);
+        const returnTimeStr = bookingData.returnTime || '18:00';
+        dropoffDateEl.textContent = `${dropoffDateStr}, ${returnTimeStr} น.`;
     }
 
     document.title = `การจองสำเร็จ - ${car.name} - CarRent`;

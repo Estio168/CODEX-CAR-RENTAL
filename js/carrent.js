@@ -155,20 +155,341 @@ function updateCarRentDetails() {
     // อัพเดทลิงก์ไปหน้า confirm พร้อมส่งข้อมูลทั้งหมด
     const confirmLinks = document.querySelectorAll('a[href*="confirm"]');
     confirmLinks.forEach(link => {
-        const params = new URLSearchParams();
-        params.set('car', carId);
-        if (bookingData.pickup) params.set('pickup', bookingData.pickup);
-        if (bookingData.dropoff) params.set('dropoff', bookingData.dropoff);
-        if (bookingData.pickupDate) params.set('pickupDate', bookingData.pickupDate);
-        if (bookingData.returnDate) params.set('returnDate', bookingData.returnDate);
-        link.href = `confirm.html?${params.toString()}`;
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // ดึงค่าเวลาจาก select
+            const pickupTimeSelect = document.getElementById('pickup-time');
+            const returnTimeSelect = document.getElementById('return-time');
+            const pickupTime = pickupTimeSelect ? pickupTimeSelect.value : '10:00';
+            const returnTime = returnTimeSelect ? returnTimeSelect.value : '18:00';
+            
+            // ใช้วันที่จาก calendar ถ้ามี หรือจาก URL
+            const pickupDate = window.selectedPickupDate || bookingData.pickupDate;
+            const returnDate = window.selectedReturnDate || bookingData.returnDate;
+            
+            const params = new URLSearchParams();
+            params.set('car', carId);
+            if (bookingData.pickup) params.set('pickup', bookingData.pickup);
+            if (bookingData.dropoff) params.set('dropoff', bookingData.dropoff);
+            if (pickupDate) params.set('pickupDate', pickupDate);
+            if (returnDate) params.set('returnDate', returnDate);
+            params.set('pickupTime', pickupTime);
+            params.set('returnTime', returnTime);
+            
+            window.location.href = `confirm.html?${params.toString()}`;
+        });
     });
 
     document.title = `การจอง - ${car.name} - CarRent`;
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateCarRentDetails);
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCarRentDetails();
+        initCalendar();
+    });
 } else {
     updateCarRentDetails();
+    initCalendar();
+}
+
+// ==================== Dynamic Calendar ====================
+const thaiMonths = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 
+                    'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+
+// Calendar 1 (ซ้าย) - สำหรับวันรับรถ
+let leftMonth = new Date().getMonth();
+let leftYear = new Date().getFullYear();
+
+// Calendar 2 (ขวา) - สำหรับวันคืนรถ
+let rightMonth = new Date().getMonth() + 1;
+let rightYear = new Date().getFullYear();
+if (rightMonth > 11) {
+    rightMonth = 0;
+    rightYear++;
+}
+
+let selectedStartDate = null;
+let selectedEndDate = null;
+
+function initCalendar() {
+    // ดึงวันที่จาก URL ถ้ามี
+    const bookingData = getBookingDataFromURL();
+    if (bookingData.pickupDate) {
+        selectedStartDate = new Date(bookingData.pickupDate);
+        leftMonth = selectedStartDate.getMonth();
+        leftYear = selectedStartDate.getFullYear();
+    }
+    if (bookingData.returnDate) {
+        selectedEndDate = new Date(bookingData.returnDate);
+        rightMonth = selectedEndDate.getMonth();
+        rightYear = selectedEndDate.getFullYear();
+    }
+    
+    renderCalendars();
+}
+
+function renderCalendars() {
+    const calendarContainer = document.getElementById('calendar-container');
+    if (!calendarContainer) return;
+    
+    const thaiYearLeft = leftYear + 543;
+    const thaiYearRight = rightYear + 543;
+    
+    // สร้าง text แสดงวันที่เลือก
+    let selectedDatesText = '';
+    if (selectedStartDate || selectedEndDate) {
+        const formatDate = (date) => {
+            if (!date) return '-';
+            return `${date.getDate()} ${thaiMonths[date.getMonth()]} ${date.getFullYear() + 543}`;
+        };
+        selectedDatesText = `
+            <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-primary/30">
+                <div class="flex flex-col sm:flex-row gap-4 text-sm">
+                    <div class="flex-1">
+                        <span class="text-gray-500 dark:text-gray-400">วันรับรถ:</span>
+                        <span class="ml-2 font-bold text-primary">${selectedStartDate ? formatDate(selectedStartDate) : 'ยังไม่ได้เลือก'}</span>
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-gray-500 dark:text-gray-400">วันคืนรถ:</span>
+                        <span class="ml-2 font-bold text-primary">${selectedEndDate ? formatDate(selectedEndDate) : 'ยังไม่ได้เลือก'}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    
+    calendarContainer.innerHTML = `
+        <div class="flex flex-col lg:flex-row gap-8 overflow-x-auto pb-4">
+            <!-- Month 1 (Left) - วันรับรถ -->
+            <div class="flex-1 min-w-[280px]">
+                <div class="flex items-center justify-between mb-4">
+                    <button id="prev-month-left" class="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
+                        <span class="material-symbols-outlined text-lg">chevron_left</span>
+                    </button>
+                    <span class="font-bold text-[#111418] dark:text-white">${thaiMonths[leftMonth]} ${thaiYearLeft}</span>
+                    <button id="next-month-left" class="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
+                        <span class="material-symbols-outlined text-lg">chevron_right</span>
+                    </button>
+                </div>
+                <div id="month1-grid" class="grid grid-cols-7 gap-1 text-center">
+                    ${renderDayHeaders()}
+                    ${renderMonthDays(leftYear, leftMonth)}
+                </div>
+            </div>
+            <!-- Month 2 (Right) - วันคืนรถ -->
+            <div class="flex-1 min-w-[280px] border-l border-dashed border-gray-200 dark:border-gray-700 pl-0 lg:pl-8">
+                <div class="flex items-center justify-between mb-4">
+                    <button id="prev-month-right" class="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
+                        <span class="material-symbols-outlined text-lg">chevron_left</span>
+                    </button>
+                    <span class="font-bold text-[#111418] dark:text-white">${thaiMonths[rightMonth]} ${thaiYearRight}</span>
+                    <button id="next-month-right" class="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
+                        <span class="material-symbols-outlined text-lg">chevron_right</span>
+                    </button>
+                </div>
+                <div id="month2-grid" class="grid grid-cols-7 gap-1 text-center">
+                    ${renderDayHeaders()}
+                    ${renderMonthDays(rightYear, rightMonth)}
+                </div>
+            </div>
+        </div>
+        ${selectedDatesText}
+    `;
+    
+    // ⭐ ต้องเรียก setupDayClickHandlers ทุกครั้งหลัง render
+    setupDayClickHandlers();
+    setupCalendarNavigation();
+}
+
+function renderDayHeaders() {
+    const days = ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'];
+    return days.map(d => `<div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">${d}</div>`).join('');
+}
+
+function renderMonthDays(year, month) {
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    let html = '';
+    
+    // Empty cells before first day
+    for (let i = 0; i < firstDay; i++) {
+        html += '<div class="h-10"></div>';
+    }
+    
+    // Days
+    for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+        date.setHours(0, 0, 0, 0);
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const isPast = date < today;
+        
+        // ตรวจสอบว่าเป็นวันที่เลือกหรือไม่
+        const isStart = selectedStartDate && 
+            date.getFullYear() === selectedStartDate.getFullYear() && 
+            date.getMonth() === selectedStartDate.getMonth() && 
+            date.getDate() === selectedStartDate.getDate();
+        const isEnd = selectedEndDate && 
+            date.getFullYear() === selectedEndDate.getFullYear() && 
+            date.getMonth() === selectedEndDate.getMonth() && 
+            date.getDate() === selectedEndDate.getDate();
+        
+        let buttonStyle = '';
+        let buttonClass = 'h-10 w-10 flex items-center justify-center text-sm rounded-full transition-all ';
+        
+        if (isPast) {
+            buttonClass += 'text-gray-300 dark:text-gray-600 cursor-not-allowed';
+        } else if (isStart || isEnd) {
+            // วันที่เลือก - สีฟ้า
+            buttonStyle = 'background-color: #137fec !important; color: white !important;';
+            buttonClass += 'font-bold cursor-pointer';
+        } else {
+            buttonClass += 'hover:bg-gray-100 dark:hover:bg-gray-700 text-[#111418] dark:text-white cursor-pointer';
+        }
+        
+        html += `<button class="${buttonClass}" style="${buttonStyle}" data-date="${dateStr}" ${isPast ? 'disabled' : ''}>${day}</button>`;
+    }
+    
+    return html;
+}
+
+function setupCalendarNavigation() {
+    const today = new Date();
+    
+    // Left calendar navigation
+    const prevLeftBtn = document.getElementById('prev-month-left');
+    const nextLeftBtn = document.getElementById('next-month-left');
+    
+    if (prevLeftBtn) {
+        prevLeftBtn.onclick = () => {
+            if (leftYear > today.getFullYear() || (leftYear === today.getFullYear() && leftMonth > today.getMonth())) {
+                leftMonth--;
+                if (leftMonth < 0) {
+                    leftMonth = 11;
+                    leftYear--;
+                }
+                renderCalendars();
+            }
+        };
+    }
+    
+    if (nextLeftBtn) {
+        nextLeftBtn.onclick = () => {
+            leftMonth++;
+            if (leftMonth > 11) {
+                leftMonth = 0;
+                leftYear++;
+            }
+            renderCalendars();
+        };
+    }
+    
+    // Right calendar navigation
+    const prevRightBtn = document.getElementById('prev-month-right');
+    const nextRightBtn = document.getElementById('next-month-right');
+    
+    if (prevRightBtn) {
+        prevRightBtn.onclick = () => {
+            if (rightYear > today.getFullYear() || (rightYear === today.getFullYear() && rightMonth > today.getMonth())) {
+                rightMonth--;
+                if (rightMonth < 0) {
+                    rightMonth = 11;
+                    rightYear--;
+                }
+                renderCalendars();
+            }
+        };
+    }
+    
+    if (nextRightBtn) {
+        nextRightBtn.onclick = () => {
+            rightMonth++;
+            if (rightMonth > 11) {
+                rightMonth = 0;
+                rightYear++;
+            }
+            renderCalendars();
+        };
+    }
+}
+
+function setupDayClickHandlers() {
+    const dayButtons = document.querySelectorAll('[data-date]:not([disabled])');
+    console.log('Setting up handlers for', dayButtons.length, 'buttons');
+    
+    dayButtons.forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+            const dateStr = btn.getAttribute('data-date');
+            const clickedDate = new Date(dateStr);
+            console.log('Clicked date:', dateStr);
+            
+            if (!selectedStartDate || (selectedStartDate && selectedEndDate)) {
+                // Start new selection
+                selectedStartDate = clickedDate;
+                selectedEndDate = null;
+                console.log('Set start date:', selectedStartDate);
+            } else if (clickedDate < selectedStartDate) {
+                // Clicked before start, reset
+                selectedStartDate = clickedDate;
+                selectedEndDate = null;
+            } else {
+                // Set end date
+                selectedEndDate = clickedDate;
+                console.log('Set end date:', selectedEndDate);
+            }
+            
+            renderCalendars();
+            updateBookingDates();
+        };
+    });
+}
+
+function updateBookingDates() {
+    if (selectedStartDate && selectedEndDate) {
+        // คำนวณจำนวนวัน
+        const diffTime = Math.abs(selectedEndDate - selectedStartDate);
+        const days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        
+        // อัพเดทราคา
+        const carId = getCarIdFromURL();
+        const car = carsData[carId];
+        if (car) {
+            const subtotal = car.price * days;
+            const discount = 500;
+            const total = subtotal - discount;
+            
+            // อัพเดท summary
+            const summaryRows = document.querySelectorAll('.flex.justify-between.text-sm');
+            summaryRows.forEach((row) => {
+                const firstSpan = row.querySelector('span:first-child');
+                const lastSpan = row.querySelector('span:last-child');
+                if (firstSpan && lastSpan && (firstSpan.textContent.includes('฿') || firstSpan.textContent.includes('วัน'))) {
+                    firstSpan.textContent = `฿${car.price.toLocaleString()} x ${days} วัน`;
+                    lastSpan.textContent = `฿${subtotal.toLocaleString()}`;
+                }
+            });
+            
+            const totalPriceElement = document.querySelector('.text-2xl.font-black.text-primary');
+            if (totalPriceElement) {
+                totalPriceElement.textContent = `฿${total.toLocaleString()}`;
+            }
+        }
+        
+        // อัพเดท URL parameters สำหรับส่งไปหน้าถัดไป
+        const pickupDate = formatDateForURL(selectedStartDate);
+        const returnDate = formatDateForURL(selectedEndDate);
+        
+        // เก็บไว้ใน global variable
+        window.selectedPickupDate = pickupDate;
+        window.selectedReturnDate = returnDate;
+    }
+}
+
+function formatDateForURL(date) {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 }

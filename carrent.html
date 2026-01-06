@@ -131,11 +131,29 @@
                                         </div>
                                     </div>
                                     <div class="flex gap-2 mt-2">
-                                        <select
+                                        <select id="pickup-time"
                                             class="w-full h-10 px-3 rounded-lg border border-[#e5e7eb] dark:border-[#4a5568] bg-white dark:bg-[#1a202c] text-sm focus:border-primary focus:ring-0">
-                                            <option>10:00 AM</option>
-                                            <option>10:30 AM</option>
-                                            <option>11:00 AM</option>
+                                            <option value="08:00">08:00 AM</option>
+                                            <option value="08:30">08:30 AM</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="09:30">09:30 AM</option>
+                                            <option value="10:00" selected>10:00 AM</option>
+                                            <option value="10:30">10:30 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="11:30">11:30 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="12:30">12:30 PM</option>
+                                            <option value="13:00">01:00 PM</option>
+                                            <option value="13:30">01:30 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="14:30">02:30 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="15:30">03:30 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="16:30">04:30 PM</option>
+                                            <option value="17:00">05:00 PM</option>
+                                            <option value="17:30">05:30 PM</option>
+                                            <option value="18:00">06:00 PM</option>
                                         </select>
                                     </div>
                                 </div>
@@ -151,108 +169,36 @@
                                         </div>
                                     </div>
                                     <div class="flex gap-2 mt-2">
-                                        <select
+                                        <select id="return-time"
                                             class="w-full h-10 px-3 rounded-lg border border-[#e5e7eb] dark:border-[#4a5568] bg-white dark:bg-[#1a202c] text-sm focus:border-primary focus:ring-0">
-                                            <option>10:00 AM</option>
-                                            <option>10:30 AM</option>
-                                            <option>11:00 AM</option>
+                                            <option value="08:00">08:00 AM</option>
+                                            <option value="08:30">08:30 AM</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="09:30">09:30 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="10:30">10:30 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="11:30">11:30 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="12:30">12:30 PM</option>
+                                            <option value="13:00">01:00 PM</option>
+                                            <option value="13:30">01:30 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="14:30">02:30 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="15:30">03:30 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="16:30">04:30 PM</option>
+                                            <option value="17:00">05:00 PM</option>
+                                            <option value="17:30">05:30 PM</option>
+                                            <option value="18:00" selected>06:00 PM</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Calendar Grid -->
-                            <div class="flex flex-col lg:flex-row gap-8 overflow-x-auto pb-4">
-                                <!-- Month 1 -->
-                                <div class="flex-1 min-w-[280px]">
-                                    <div class="flex items-center justify-between mb-4">
-                                        <button class="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
-                                            <span class="material-symbols-outlined text-lg">chevron_left</span>
-                                        </button>
-                                        <span class="font-bold text-[#111418] dark:text-white">กันยายน 2023</span>
-                                        <div class="w-8"></div>
-                                    </div>
-                                    <div class="grid grid-cols-7 gap-1 text-center">
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">S</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">M</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">T</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">W</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">T</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">F</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">S</div>
-                                        <!-- Empty cells for start of month -->
-                                        <div class="h-10"></div>
-                                        <div class="h-10"></div>
-                                        <div class="h-10"></div>
-                                        <!-- Days -->
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">1</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">2</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">3</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">4</button>
-                                        <!-- Selected Range Start -->
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-l-full bg-primary text-white text-sm font-bold">5</button>
-                                        <!-- Range -->
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center bg-primary/10 text-[#111418] dark:text-white text-sm">6</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center bg-primary/10 text-[#111418] dark:text-white text-sm">7</button>
-                                        <!-- ... more days -->
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center bg-primary/10 text-[#111418] dark:text-white text-sm">8</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center bg-primary/10 text-[#111418] dark:text-white text-sm">9</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center bg-primary/10 text-[#111418] dark:text-white text-sm">10</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center bg-primary/10 text-[#111418] dark:text-white text-sm">11</button>
-                                    </div>
-                                </div>
-                                <!-- Month 2 -->
-                                <div
-                                    class="flex-1 min-w-[280px] border-l border-dashed border-gray-200 dark:border-gray-700 pl-0 lg:pl-8">
-                                    <div class="flex items-center justify-between mb-4">
-                                        <div class="w-8"></div>
-                                        <span class="font-bold text-[#111418] dark:text-white">ตุลาคม 2023</span>
-                                        <button class="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full">
-                                            <span class="material-symbols-outlined text-lg">chevron_right</span>
-                                        </button>
-                                    </div>
-                                    <div class="grid grid-cols-7 gap-1 text-center">
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">S</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">M</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">T</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">W</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">T</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">F</div>
-                                        <div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">S</div>
-                                        <!-- Empty -->
-                                        <div class="h-10"></div>
-                                        <div class="h-10"></div>
-                                        <div class="h-10"></div>
-                                        <!-- Days -->
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">1</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">2</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">3</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">4</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">5</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">6</button>
-                                        <!-- Selected Range End -->
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-r-full bg-primary text-white text-sm font-bold">7</button>
-                                        <button
-                                            class="h-10 w-full flex items-center justify-center rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white">8</button>
-                                    </div>
-                                </div>
+                            <!-- Calendar Grid - Dynamic -->
+                            <div id="calendar-container">
+                                <!-- Calendar จะถูกสร้างโดย JavaScript -->
                             </div>
                         </div>
                     </div>

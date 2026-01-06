@@ -56,46 +56,34 @@ window.initGooglePlacesAutocomplete = async function() {
 };
 
 async function setupAutocomplete() {
-    const pickupContainer = document.getElementById('pickup-location-container');
-    const dropoffContainer = document.getElementById('dropoff-location-container');
+    const pickupInput = document.getElementById('pickup-location');
+    const dropoffInput = document.getElementById('dropoff-location');
     
-    if (!pickupContainer || !dropoffContainer) {
-        console.log('Container not found');
+    if (!pickupInput || !dropoffInput) {
+        console.log('Input fields not found');
         return;
     }
     
     try {
-        // โหลด Places library แบบใหม่
-        const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
-        
-        // ⭐ สร้าง PlaceAutocompleteElement สำหรับช่องรับรถ
-        const pickupAutocomplete = new PlaceAutocompleteElement();
-        pickupAutocomplete.id = 'pickup-location';
-        pickupAutocomplete.setAttribute('placeholder', 'สถานที่รับรถ');
-        pickupAutocomplete.style.cssText = 'width: 100%;';
-        
-        // แทนที่ input เดิมด้วย PlaceAutocompleteElement
-        pickupContainer.innerHTML = '';
-        pickupContainer.appendChild(pickupAutocomplete);
-        
-        pickupAutocomplete.addEventListener('gmp-placeselect', (event) => {
-            const place = event.place;
-            console.log('สถานที่รับรถ:', place.formattedAddress);
+        // ใช้ Places Autocomplete (Legacy API)
+        const pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, {
+            componentRestrictions: { country: 'th' },
+            fields: ['formatted_address', 'geometry', 'name']
         });
         
-        // ⭐ สร้าง PlaceAutocompleteElement สำหรับช่องคืนรถ
-        const dropoffAutocomplete = new PlaceAutocompleteElement();
-        dropoffAutocomplete.id = 'dropoff-location';
-        dropoffAutocomplete.setAttribute('placeholder', 'จุดคืนรถ (ถ้าต่างจากจุดรับ)');
-        dropoffAutocomplete.style.cssText = 'width: 100%;';
+        pickupAutocomplete.addListener('place_changed', () => {
+            const place = pickupAutocomplete.getPlace();
+            console.log('สถานที่รับรถ:', place.formatted_address);
+        });
         
-        // แทนที่ input เดิมด้วย PlaceAutocompleteElement
-        dropoffContainer.innerHTML = '';
-        dropoffContainer.appendChild(dropoffAutocomplete);
+        const dropoffAutocomplete = new google.maps.places.Autocomplete(dropoffInput, {
+            componentRestrictions: { country: 'th' },
+            fields: ['formatted_address', 'geometry', 'name']
+        });
         
-        dropoffAutocomplete.addEventListener('gmp-placeselect', (event) => {
-            const place = event.place;
-            console.log('สถานที่คืนรถ:', place.formattedAddress);
+        dropoffAutocomplete.addListener('place_changed', () => {
+            const place = dropoffAutocomplete.getPlace();
+            console.log('สถานที่คืนรถ:', place.formatted_address);
         });
         
         console.log('PlaceAutocompleteElement ถูกสร้างและ append แล้ว');
