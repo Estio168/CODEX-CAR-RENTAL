@@ -28,7 +28,8 @@
     <div
         class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden text-slate-900 dark:text-white font-display">
         <!-- TopNavBar -->
-        <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] bg-white dark:bg-[#1a202c] dark:border-gray-700 px-4 md:px-10 py-3 shadow-sm">
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] bg-white dark:bg-[#1a202c] dark:border-gray-700 px-4 md:px-10 py-3 shadow-sm">
             <div class="flex items-center gap-4 text-[#111418] dark:text-white">
                 <div class="size-8 text-primary">
                     <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -37,14 +38,20 @@
                             fill="currentColor"></path>
                     </svg>
                 </div>
-                <a href="index.html"><h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">CarRent</h2></a>
+                <a href="index.html">
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">CarRent</h2>
+                </a>
             </div>
             <div class="hidden md:flex flex-1 justify-end gap-8">
                 <div class="flex items-center gap-6">
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">หน้าแรก</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="Searchcar.html">ค้นหารถ</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html#promotions">โปรโมชั่น</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="tellcontact.html">ช่วยเหลือ</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="index.html">หน้าแรก</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="Searchcar.html">ค้นหารถ</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="#team">ทีมงาน</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="tellcontact.html">ช่วยเหลือ</a>
                 </div>
                 <div class="flex gap-2">
                     <a href="login.html"
@@ -58,7 +65,7 @@
                 </div>
             </div>
             <div class="md:hidden">
-                <span class="material-symbols-outlined cursor-pointer">menu</span>
+                <span class="material-symbols-outlined cursor-pointer text-2xl">menu</span>
             </div>
         </header>
         <!-- HeroSection -->
@@ -70,8 +77,12 @@
                     <div class="flex flex-col gap-4 text-center max-w-[800px] z-10 animate-fade-in-up">
                         <span
                             class="text-primary font-bold tracking-wider uppercase text-sm md:text-base">เกี่ยวกับเรา</span>
-                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl">
-                            ขับเคลื่อนทุกการเดินทางของคุณ<br />อย่างมั่นใจตั้งแต่ปี 2015
+                        <h1
+                            class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl py-400 md:py-200">
+                            ขับเคลื่อนทุกการเดินทางของคุณ
+                        </h1>
+                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl">
+                            อย่างมั่นใจตั้งแต่ปี 2015
                         </h1>
                         <h2
                             class="text-slate-200 text-base font-normal leading-relaxed md:text-xl max-w-[640px] mx-auto">
@@ -271,24 +282,27 @@
             </div>
         </div>
         <!-- Team Section -->
-        <div class="flex flex-1 justify-center py-16 px-4 md:px-40 bg-background-light dark:bg-background-dark">
-            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+        <div id="team" class="flex flex-1 justify-center py-16 px-4 md:px-40 bg-background-light dark:bg-background-dark">
+            <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
                 <div class="flex flex-col gap-4 text-center items-center mb-12">
                     <h2 class="text-[#111418] dark:text-white text-3xl font-bold leading-tight">พบกับทีมงานของเรา</h2>
                     <p class="text-[#617589] dark:text-slate-400 text-base">ผู้เชี่ยวชาญที่พร้อมดูแลคุณในทุกขั้นตอน</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8">
                     <!-- Member 1 -->
                     <div class="flex flex-col items-center text-center gap-3">
                         <div
                             class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
                             <img alt="Somchai CEO" class="w-full h-full object-cover"
                                 data-alt="Portrait of Somchai, the CEO, wearing a suit and smiling"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbKFvgku7lW26Dwhbx-dHhSsdhNT7LyCP54IVk1UxswZ-k4oEtFF1vb8N-HonulJJWd_7x5H-OGyVyXTjQD5t5pnS-W6r0AEYHfK8AzHB1jgcEKGL8Ri0tZ5S_qGnfhkdCRpTzdGaV5zve-ixN4IQjL03LIVcwSrNzfFgMcK-HnJOUffy301bDrVcSjJPNz486xIW6zn2Zm-mUGm37RYe2nthgThENGdqvNatEgWbS0mLV6ZQqnQNqf-HKm0wAv7oHcN118ut78JFJ" />
+                                src="images/garfild.png" />
                         </div>
                         <div>
-                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">สมชาย มั่นคง</h3>
-                            <p class="text-primary text-sm font-medium">CEO &amp; Founder</p>
+                            <a href="https://nadhanatnum.github.io/Individual-Project-MyResume-/" target="_blank" rel="noopener noreferrer"
+                                class="text-[#111418] dark:text-white text-lg font-bold hover:text-primary transition-colors cursor-pointer">
+                                <h3>Nadhanat Numnoul</h3>
+                            </a>
+                            <p class="text-primary text-sm font-medium">6752301123</p>
                         </div>
                     </div>
                     <!-- Member 2 -->
@@ -297,24 +311,30 @@
                             class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
                             <img alt="Vipada Ops" class="w-full h-full object-cover"
                                 data-alt="Portrait of Vipada, Head of Operations, wearing professional attire"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGXmyEsbFHaivcRQ6vqv5y0DgfEbvhN04yJIerKojB13hnrvUmPYAw8fYTiwOc-P8DvzQ22djy9k4GCFf09rv5-KoyviKnYARNGzJH3erg82Bt9d4e6ACTe1xQEeAXoYf31BIpW6ZY04_6R2krUIb5VGWXGaPEVLvaqlfFqTWakVgY7mf_uFryfgPvKy_wO7lH-hYNsNDebYVWWYkeqaNdZLNlz729o07iYH-XpvsZmVMX9ASnLchKjTQsCF5ST8rUOScIEkxOs-z-" />
+                                src="images/iff.JPG" />
                         </div>
                         <div>
-                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">วิภาดา ใจดี</h3>
-                            <p class="text-primary text-sm font-medium">Head of Operations</p>
+                            <a href="https://t-patima.github.io/Resume---Patima-Tinsumran/" target="_blank" rel="noopener noreferrer"
+                                class="text-[#111418] dark:text-white text-lg font-bold hover:text-primary transition-colors cursor-pointer">
+                                <h3>Patima Tinsumran</h3>
+                            </a>
+                            <p class="text-primary text-sm font-medium">6752300461</p>
                         </div>
                     </div>
                     <!-- Member 3 -->
                     <div class="flex flex-col items-center text-center gap-3">
                         <div
                             class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
-                            <img alt="Nattapol Fleet" class="w-full h-full object-cover"
-                                data-alt="Portrait of Nattapol, Fleet Manager, smiling"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAkBI9ch0QIbifEGLE_gcuOIs9RClNOpLGCnCaJh_uSqyztZCTEZFLD3xccBqJfWtlehpDC9sz7WN7IY_uHx0qIMlJSR8x4lGANmfim20ZDJMcAM5aoQWpJ5-qakkw4Xts_Idv95KEeK5Vm5jnpM69kg-LURdt8ZPYLK-dSNllzQ0XqVmKrcfdtqGFeGxUw0pxsygbE3k2Yvguyj8PPm5k89NDu3C6re-0ffblj9fPoiG7ovOZ9QG9bPFztQ4BlfpgU26ScDwtQXSC" />
+                            <img alt="Nattapol Fleet" class="w-full h-full object-cover object-[center_90%]"
+                                data-alt="Portrait of Nattapol, Fleet Manager, smiling" src="images/kiw.jpg" />
                         </div>
                         <div>
-                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">ณัฐพล ขับขี่ปลอดภัย</h3>
-                            <p class="text-primary text-sm font-medium">Fleet Manager</p>
+                            <a href="https://github.com/kitimasak-jamson" target="_blank" rel="noopener noreferrer"
+                                class="text-[#111418] dark:text-white text-lg font-bold hover:text-primary transition-colors cursor-pointer">
+                                <h3>Kitimasak Jamson</h3>
+                            </a>
+                            <p class="text-primary text-sm font-medium">6752300917</p>
+
                         </div>
                     </div>
                     <!-- Member 4 -->
@@ -323,11 +343,30 @@
                             class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
                             <img alt="Pim Service" class="w-full h-full object-cover"
                                 data-alt="Portrait of Pim, Customer Service Lead, smiling brightly"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANeV7-WiitA_aISPzYZX_jZYBwwz-aBWZ43M9LB6KuCXbYF2AFmq-QN5J6l-EWM29xRqqw1YEbhoGGrLXf5CSKLLYuzo7kl2dQkJBfH7oIp6x19S-Wl2N95O8jho0e3j_b0QlA7DHfv29UMlijMurskjmpGv9jeMu9L-89Zacn_wwogjXeSvKHbLTclb83zB0cCSSmI5XNb0t7IZL8h4jrdePcNi8WXSCkNo2m7uHmQh3wBpBlkgkoxT3Lw1qaxVzGk_AoQpq_K1u8" />
+                                src="images/bas.png" />
                         </div>
                         <div>
-                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">พิมพา บริการ</h3>
-                            <p class="text-primary text-sm font-medium">Customer Service Lead</p>
+                            <a href="https://supakon33.github.io/Resume/" target="_blank" rel="noopener noreferrer"
+                                class="text-[#111418] dark:text-white text-lg font-bold hover:text-primary transition-colors cursor-pointer">
+                                <h3>Supakon Sarnoi</h3>
+                            </a>
+                            <p class="text-primary text-sm font-medium">6752300631</p>
+                        </div>
+                    </div>
+                    <!-- Member 5 -->
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div
+                            class="w-32 h-32 rounded-full overflow-hidden mb-2 border-4 border-white dark:border-slate-800 shadow-lg">
+                            <img alt="Pim Service" class="w-full h-full object-cover"
+                                data-alt="Portrait of Pim, Customer Service Lead, smiling brightly"
+                                src="images/rujirat pic.jpg" />
+                        </div>
+                        <div>
+                            <a href="https://rujirat-s.github.io/Resume/" target="_blank" rel="noopener noreferrer"
+                                class="text-[#111418] dark:text-white text-lg font-bold hover:text-primary transition-colors cursor-pointer">
+                                <h3>Rujirat Saengchai</h3>
+                            </a>
+                            <p class="text-primary text-sm font-medium">6752300739</p>
                         </div>
                     </div>
                 </div>
@@ -454,7 +493,7 @@
                     <div class="flex flex-col gap-3">
                         <h3 class="font-bold text-[#111418] dark:text-white">บริษัท</h3>
                         <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="#">เกี่ยวกับเรา</a>
+                            href="contact.html">เกี่ยวกับเรา</a>
                         <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
                             href="#">ร่วมงานกับเรา</a>
                         <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary" href="#">ข่าวสาร</a>
@@ -462,7 +501,9 @@
                     <div class="flex flex-col gap-3">
                         <h3 class="font-bold text-[#111418] dark:text-white">ช่วยเหลือ</h3>
                         <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="#">ศูนย์ช่วยเหลือ</a>
+                            href="tellcontact.html">ศูนย์ช่วยเหลือ</a>
+                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
+                            href="tellcontact.html">วิธีการจอง</a>
                         <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
                             href="#">เงื่อนไขการใช้บริการ</a>
                         <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
@@ -485,6 +526,7 @@
         </footer>
     </div>
     <script src="js/contact.js"></script>
+    <script src="js/mobile-menu.js"></script>
 </body>
 
 </html>
