@@ -108,23 +108,27 @@ window.initSearchPageAutocomplete = async function() {
 };
 
 async function setupSearchAutocomplete() {
-    const pickupInput = document.getElementById('search-pickup-location');
+    const pickupContainer = document.getElementById('search-pickup-container');
     
-    if (!pickupInput) {
-        console.log('Pickup input not found');
+    if (!pickupContainer) {
+        console.log('Pickup container not found');
         return;
     }
     
     try {
-        // โหลด Places library แบบใหม่ (PlaceAutocompleteElement)
+        // โหลด Places library แบบใหม่
         const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
         
+        // ⭐ สร้าง PlaceAutocompleteElement
         const pickupAutocomplete = new PlaceAutocompleteElement();
-        pickupAutocomplete.inputElement = pickupInput;
+        pickupAutocomplete.id = 'search-pickup-location';
+        pickupAutocomplete.setAttribute('placeholder', 'สถานที่รับรถ');
         pickupAutocomplete.componentRestrictions = { country: 'th' };
+        pickupAutocomplete.style.cssText = 'width: 100%;';
         
-        // ⭐ สำคัญที่สุด - ต้อง append ไปที่ body
-        document.body.appendChild(pickupAutocomplete);
+        // แทนที่ input เดิมด้วย PlaceAutocompleteElement
+        pickupContainer.innerHTML = '';
+        pickupContainer.appendChild(pickupAutocomplete);
         
         pickupAutocomplete.addEventListener('gmp-placeselect', (event) => {
             const place = event.place;

@@ -56,38 +56,44 @@ window.initGooglePlacesAutocomplete = async function() {
 };
 
 async function setupAutocomplete() {
-    const pickupInput = document.getElementById('pickup-location');
-    const dropoffInput = document.getElementById('dropoff-location');
+    const pickupContainer = document.getElementById('pickup-location-container');
+    const dropoffContainer = document.getElementById('dropoff-location-container');
     
-    if (!pickupInput || !dropoffInput) {
-        console.log('Input fields not found');
+    if (!pickupContainer || !dropoffContainer) {
+        console.log('Container not found');
         return;
     }
     
     try {
-        // โหลด Places library แบบใหม่ (PlaceAutocompleteElement)
+        // โหลด Places library แบบใหม่
         const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
         
-        // สร้าง autocomplete สำหรับช่องรับรถ
+        // ⭐ สร้าง PlaceAutocompleteElement สำหรับช่องรับรถ
         const pickupAutocomplete = new PlaceAutocompleteElement();
-        pickupAutocomplete.inputElement = pickupInput;
+        pickupAutocomplete.id = 'pickup-location';
+        pickupAutocomplete.setAttribute('placeholder', 'สถานที่รับรถ');
         pickupAutocomplete.componentRestrictions = { country: 'th' };
+        pickupAutocomplete.style.cssText = 'width: 100%;';
         
-        // ⭐ สำคัญที่สุด - ต้อง append ไปที่ body
-        document.body.appendChild(pickupAutocomplete);
+        // แทนที่ input เดิมด้วย PlaceAutocompleteElement
+        pickupContainer.innerHTML = '';
+        pickupContainer.appendChild(pickupAutocomplete);
         
         pickupAutocomplete.addEventListener('gmp-placeselect', (event) => {
             const place = event.place;
             console.log('สถานที่รับรถ:', place.formattedAddress);
         });
         
-        // สร้าง autocomplete สำหรับช่องคืนรถ
+        // ⭐ สร้าง PlaceAutocompleteElement สำหรับช่องคืนรถ
         const dropoffAutocomplete = new PlaceAutocompleteElement();
-        dropoffAutocomplete.inputElement = dropoffInput;
+        dropoffAutocomplete.id = 'dropoff-location';
+        dropoffAutocomplete.setAttribute('placeholder', 'จุดคืนรถ (ถ้าต่างจากจุดรับ)');
         dropoffAutocomplete.componentRestrictions = { country: 'th' };
+        dropoffAutocomplete.style.cssText = 'width: 100%;';
         
-        // ⭐ สำคัญที่สุด - ต้อง append ไปที่ body
-        document.body.appendChild(dropoffAutocomplete);
+        // แทนที่ input เดิมด้วย PlaceAutocompleteElement
+        dropoffContainer.innerHTML = '';
+        dropoffContainer.appendChild(dropoffAutocomplete);
         
         dropoffAutocomplete.addEventListener('gmp-placeselect', (event) => {
             const place = event.place;

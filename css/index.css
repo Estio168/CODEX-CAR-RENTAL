@@ -87,6 +87,28 @@ body {
 
 /* Google Maps Place Autocomplete (New API) */
 gmp-place-autocomplete {
-    position: fixed !important;
-    z-index: 9999 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+gmp-place-autocomplete input {
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 16px !important;
+    border-radius: 8px !important;
+    background-color: rgb(249, 250, 251) !important;
+    border: none !important;
+    box-shadow: 0 0 0 1px rgb(229, 231, 235) !important;
+    font-size: 14px !important;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Thai', sans-serif !important;
+    color: #111418 !important;
+}
+
+gmp-place-autocomplete input:focus {
+    box-shadow: 0 0 0 2px #137fec !important;
+    outline: none !important;
+}
+
+gmp-place-autocomplete input::placeholder {
+    color: #9ca3af !important;
 }
