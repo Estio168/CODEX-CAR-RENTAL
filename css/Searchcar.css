@@ -58,12 +58,18 @@ body {
 gmp-place-autocomplete {
     width: 100% !important;
     display: block !important;
+    --gmp-mat-color-surface: rgb(248, 250, 252) !important;
+    --gmp-mat-color-on-surface: #111418 !important;
+    --gmp-mat-color-on-surface-variant: #617589 !important;
+    --gmp-mat-color-outline: rgb(219, 224, 230) !important;
+    --gmp-mat-color-outline-variant: rgb(219, 224, 230) !important;
+    --gmp-mat-color-primary: #137fec !important;
 }
 
 gmp-place-autocomplete input {
     width: 100% !important;
     height: 48px !important;
-    padding: 0 12px !important;
+    padding: 0 40px 0 12px !important;
     border-radius: 8px !important;
     background-color: rgb(248, 250, 252) !important;
     border: 1px solid rgb(219, 224, 230) !important;
