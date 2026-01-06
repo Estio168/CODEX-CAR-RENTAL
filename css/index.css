@@ -84,3 +84,9 @@ body {
 .dark .pac-matched {
     color: #60a5fa;
 }
+
+/* Google Maps Place Autocomplete (New API) */
+gmp-place-autocomplete {
+    position: fixed !important;
+    z-index: 9999 !important;
+}

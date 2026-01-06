@@ -53,3 +53,9 @@ body {
     color: #137fec;
     font-weight: 700;
 }
+
+/* Google Maps Place Autocomplete (New API) */
+gmp-place-autocomplete {
+    position: fixed !important;
+    z-index: 9999 !important;
+}
