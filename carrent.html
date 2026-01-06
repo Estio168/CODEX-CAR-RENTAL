@@ -27,32 +27,38 @@
     class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-x-hidden min-h-screen flex flex-col">
     <!-- Top Navbar -->
     <header
-        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e5e7eb] dark:border-[#2d3748] bg-white dark:bg-[#1a202c] px-4 md:px-10 py-3">
-        <div class="flex items-center gap-4">
-            <div class="size-8 text-primary">
-                <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
-                        fill="currentColor"></path>
-                </svg>
-            </div>
-            <a href="index.html"><h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2></a>
-        </div>
-        <div class="hidden md:flex flex-1 justify-end gap-8">
-            <div class="flex items-center gap-9">
-                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] bg-white px-4 sm:px-10 py-3 shadow-sm">
+        <a href="index.html" class="flex items-center gap-3 text-[#111418]">
+            <img src="images/logo.png" alt="Maxnus Car Rental" class="h-10 w-auto object-contain">
+        </a>
+        <div class="hidden lg:flex flex-1 justify-end gap-8">
+            <nav class="flex items-center gap-8">
+                <a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors"
                     href="index.html">หน้าหลัก</a>
-                <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                <a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors"
                     href="Searchcar.html">รถเช่า</a>
+                <a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors"
+                    href="index.html#promotions">โปรโมชั่น</a>
+                <a class="text-[#111418] text-sm font-medium hover:text-primary transition-colors"
+                    href="contact.html">ติดต่อเรา</a>
+            </nav>
+            <div class="flex gap-2">
+                <a href="login.html"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                    <span class="truncate">เข้าสู่ระบบ</span>
+                </a>
+                <a href="register.html"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+                    <span class="truncate">ลงทะเบียน</span>
+                </a>
             </div>
-            <a href="login.html"
-                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 transition-colors">
-                <span class="truncate">เข้าสู่ระบบ</span>
-            </a>
         </div>
-        <button class="md:hidden text-[#111418] dark:text-white">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
+        <!-- Mobile Menu Icon -->
+        <div class="lg:hidden">
+            <button class="text-[#111418] p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
     </header>
     <!-- Main Content Layout -->
     <main class="flex-1 layout-container flex flex-col items-center py-6 md:py-10 px-4 md:px-10 lg:px-20">
@@ -120,7 +126,7 @@
                                         class="flex items-center gap-3 p-3 rounded-lg border border-[#e5e7eb] dark:border-[#4a5568] bg-[#f8fafc] dark:bg-[#2d3748]">
                                         <span class="material-symbols-outlined text-primary">location_on</span>
                                         <div class="flex flex-col">
-                                            <span class="font-bold text-sm text-[#111418] dark:text-white">สนามบินสุวรรณภูมิ
+                                            <span id="pickup-location-display" class="font-bold text-sm text-[#111418] dark:text-white">สนามบินสุวรรณภูมิ
                                                 กรุงเทพฯ</span>
                                             <span class="text-xs text-[#617589] dark:text-gray-400">อาคาร 1</span>
                                         </div>
@@ -141,7 +147,7 @@
                                         class="flex items-center gap-3 p-3 rounded-lg border border-[#e5e7eb] dark:border-[#4a5568] bg-[#f8fafc] dark:bg-[#2d3748]">
                                         <span class="material-symbols-outlined text-primary">location_on</span>
                                         <div class="flex flex-col">
-                                            <span class="font-bold text-sm text-[#111418] dark:text-white">สนามบินสุวรรณภูมิ
+                                            <span id="dropoff-location-display" class="font-bold text-sm text-[#111418] dark:text-white">สนามบินสุวรรณภูมิ
                                                 กรุงเทพฯ</span>
                                             <span class="text-xs text-[#617589] dark:text-gray-400">อาคาร 1</span>
                                         </div>

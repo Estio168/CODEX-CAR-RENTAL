@@ -23,19 +23,18 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="css/index.css" rel="stylesheet" />
+    <!-- Google Maps Places API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSST7mR9J7naIT0uS3mtVaXtRCZe4vDgs&libraries=places&language=th&callback=initGooglePlacesAutocomplete" async defer></script>
 </head>
 
 <body
     class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white flex flex-col min-h-screen overflow-x-hidden">
     <!-- Top Navigation -->
     <header
-        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-gray-800 bg-white/90 dark:bg-[#101922]/90 backdrop-blur-md px-4 sm:px-10 py-3 transition-colors">
-        <div class="flex items-center gap-4 text-[#111418] dark:text-white">
-            <div class="size-8 text-primary">
-                <span class="material-symbols-outlined text-3xl">directions_car</span>
-            </div>
-            <h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2>
-        </div>
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] bg-white px-4 sm:px-10 py-3 shadow-sm">
+        <a href="index.html" class="flex items-center gap-3 text-[#111418] dark:text-white">
+            <img src="images/logo.png" alt="Maxnus Car Rental" class="h-10 w-auto object-contain">
+        </a>
         <!-- Desktop Menu -->
         <div class="hidden lg:flex flex-1 justify-end gap-8">
             <nav class="flex items-center gap-8">
@@ -116,8 +115,9 @@
                                     <span
                                         class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">location_on</span>
                                     <input
+                                        id="pickup-location"
                                         class="w-full h-12 pl-10 pr-4 rounded-lg bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary text-gray-900 dark:text-white placeholder-gray-400 font-medium transition-shadow"
-                                        placeholder="จังหวัด, สนามบิน, หรือสถานที่" type="text" />
+                                        placeholder="จังหวัด, สนามบิน, หรือสถานที่" type="text" autocomplete="off" />
                                 </div>
                             </div>
                             <!-- Dropoff Location -->
@@ -128,42 +128,45 @@
                                     <span
                                         class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">flag</span>
                                     <input
+                                        id="dropoff-location"
                                         class="w-full h-12 pl-10 pr-4 rounded-lg bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary text-gray-900 dark:text-white placeholder-gray-400 font-medium transition-shadow"
-                                        placeholder="จุดคืนรถ (ถ้าต่างจากจุดรับ)" type="text" />
+                                        placeholder="จุดคืนรถ (ถ้าต่างจากจุดรับ)" type="text" autocomplete="off" />
                                 </div>
                             </div>
                             <!-- Pickup Date -->
                             <div class="flex flex-col gap-1.5">
                                 <label
-                                    class="text-xs font-bold text-gray-500 uppercase tracking-wider">วัน-เวลารับรถ</label>
+                                    class="text-xs font-bold text-gray-500 uppercase tracking-wider">วันรับรถ</label>
                                 <div class="relative">
                                     <span
                                         class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">calendar_today</span>
                                     <input
+                                        id="pickup-date"
                                         class="w-full h-12 pl-10 pr-4 rounded-lg bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary text-gray-900 dark:text-white placeholder-gray-400 font-medium transition-shadow"
-                                        type="datetime-local" />
+                                        type="date" />
                                 </div>
                             </div>
                             <!-- Return Date -->
                             <div class="flex flex-col gap-1.5">
                                 <label
-                                    class="text-xs font-bold text-gray-500 uppercase tracking-wider">วัน-เวลาคืนรถ</label>
+                                    class="text-xs font-bold text-gray-500 uppercase tracking-wider">วันคืนรถ</label>
                                 <div class="relative">
                                     <span
                                         class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">event_available</span>
                                     <input
+                                        id="return-date"
                                         class="w-full h-12 pl-10 pr-4 rounded-lg bg-gray-50 dark:bg-gray-800 border-0 ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary text-gray-900 dark:text-white placeholder-gray-400 font-medium transition-shadow"
-                                        type="datetime-local" />
+                                        type="date" />
                                 </div>
                             </div>
                         </div>
                         <!-- Submit Button -->
                         <div class="pt-2">
-                            <a href="Searchcar.html"
+                            <button type="button" id="search-btn"
                                 class="w-full h-14 bg-primary hover:bg-primary-hover text-white text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
                                 <span class="material-symbols-outlined">search</span>
                                 ค้นหารถว่าง
-                            </a>    
+                            </button>    
                         </div>
                     </form>
                 </div>
@@ -466,14 +469,10 @@
     <footer class="bg-background-dark text-white pt-16 pb-8 border-t border-gray-800">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- Brand -->
                 <div>
-                    <div class="flex items-center gap-3 text-white mb-6">
-                        <div class="size-8 text-primary">
-                            <span class="material-symbols-outlined text-3xl">directions_car</span>
-                        </div>
-                        <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2>
-                    </div>
+                    <a href="index.html" class="flex items-center gap-3 text-white mb-6">
+                        <img src="images/logo.png" alt="Maxnus Car Rental" class="h-10 w-auto object-contain brightness-0 invert">
+                    </a>
                     <p class="text-gray-400 leading-relaxed mb-6">
                         ให้บริการเช่ารถคุณภาพเยี่ยมทั่วไทย มั่นใจด้วยมาตรฐานความปลอดภัยและการบริการระดับมืออาชีพ
                     </p>
@@ -526,7 +525,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">© 2025 CarRent CODEX. สงวนลิขสิทธิ์.</p>
+                <p class="text-gray-500 text-sm">© 2025 CODEX CAR RENTAL. สงวนลิขสิทธิ์.</p>
                 <div class="flex gap-6 text-sm text-gray-500">
                     <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
                     <a class="hover:text-white transition-colors" href="contact.html#team">Terms of Service</a>

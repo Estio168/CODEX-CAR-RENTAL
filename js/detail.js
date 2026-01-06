@@ -100,12 +100,61 @@ function getCarIdFromURL() {
     return urlParams.get('car') || 'vios';
 }
 
+// ดึงข้อมูลสถานที่และวันที่จาก URL
+function getBookingDataFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pickup = urlParams.get('pickup') || '';
+    return {
+        pickup: pickup,
+        dropoff: urlParams.get('dropoff') || pickup, // ถ้าไม่มี dropoff ใช้ค่าเดียวกับ pickup
+        pickupDate: urlParams.get('pickupDate') || '',
+        returnDate: urlParams.get('returnDate') || ''
+    };
+}
+
 function updateCarDetails() {
     const carId = getCarIdFromURL();
     const car = carsData[carId];
-    if (!car) return;
+    
+    console.log('Car ID from URL:', carId);
+    console.log('Car data:', car);
+    
+    if (!car) {
+        console.log('Car not found, using default');
+        return;
+    }
 
-    document.querySelector('h1').textContent = car.name;
+    // โหลดข้อมูลสถานที่จาก URL
+    const bookingData = getBookingDataFromURL();
+    
+    // อัพเดทสถานที่รับรถ
+    const pickupInput = document.getElementById('detail-pickup-location');
+    if (pickupInput && bookingData.pickup) {
+        pickupInput.value = bookingData.pickup;
+    }
+
+    // อัพเดท page title
+    document.title = `${car.name} - CarRent`;
+
+    // อัพเดท breadcrumb
+    const breadcrumbItems = document.querySelectorAll('.flex.flex-wrap.items-center.gap-2 span.font-medium');
+    breadcrumbItems.forEach(item => {
+        item.textContent = car.name;
+    });
+
+    // อัพเดท breadcrumb location
+    const breadcrumbLocation = document.querySelector('.flex.flex-wrap.items-center.gap-2 a[href="Searchcar.html"]');
+    if (breadcrumbLocation && bookingData.pickup) {
+        breadcrumbLocation.textContent = bookingData.pickup;
+    }
+
+    // อัพเดทชื่อรถ h1
+    const h1Element = document.querySelector('h1');
+    if (h1Element) {
+        h1Element.textContent = car.name;
+        console.log('Updated h1 to:', car.name);
+    }
+    
     document.querySelectorAll('.text-primary.font-black').forEach(el => {
         if (el.textContent.includes('฿')) el.innerHTML = `฿${car.price.toLocaleString()}<span class="text-sm font-normal text-gray-500 dark:text-gray-400">/วัน</span>`;
     });
@@ -159,7 +208,16 @@ function updateCarDetails() {
         `;
     }
 
-    document.querySelectorAll('a[href*="carrent.html"]').forEach(btn => btn.href = `carrent.html?car=${carId}`);
+    // ส่งข้อมูลสถานที่และวันที่ไปหน้า carrent.html
+    document.querySelectorAll('a[href*="carrent.html"]').forEach(btn => {
+        const params = new URLSearchParams();
+        params.set('car', carId);
+        if (bookingData.pickup) params.set('pickup', bookingData.pickup);
+        if (bookingData.dropoff) params.set('dropoff', bookingData.dropoff);
+        if (bookingData.pickupDate) params.set('pickupDate', bookingData.pickupDate);
+        if (bookingData.returnDate) params.set('returnDate', bookingData.returnDate);
+        btn.href = `carrent.html?${params.toString()}`;
+    });
 }
 
 if (document.readyState === 'loading') {

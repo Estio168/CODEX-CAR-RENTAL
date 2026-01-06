@@ -30,9 +30,22 @@ function getCarIdFromURL() {
     return urlParams.get('car') || 'tesla3';
 }
 
+// ดึงข้อมูลสถานที่และวันที่จาก URL
+function getBookingDataFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pickup = urlParams.get('pickup') || '';
+    return {
+        pickup: pickup,
+        dropoff: urlParams.get('dropoff') || pickup, // ถ้าไม่มี dropoff ใช้ค่าเดียวกับ pickup
+        pickupDate: urlParams.get('pickupDate') || '',
+        returnDate: urlParams.get('returnDate') || ''
+    };
+}
+
 function updateCarRentDetails() {
     const carId = getCarIdFromURL();
     const car = carsData[carId];
+    const bookingData = getBookingDataFromURL();
     
     if (!car) {
         console.log('ไม่พบข้อมูลรถ ID:', carId);
@@ -40,12 +53,36 @@ function updateCarRentDetails() {
     }
 
     console.log('กำลังอัพเดทหน้า carrent สำหรับรถ:', car.name);
+    console.log('ข้อมูลการจอง:', bookingData);
 
-    const days = 5;
+    // อัพเดทสถานที่รับรถ
+    const pickupDisplay = document.getElementById('pickup-location-display');
+    if (pickupDisplay && bookingData.pickup) {
+        pickupDisplay.textContent = bookingData.pickup;
+    }
+
+    // อัพเดทสถานที่คืนรถ
+    const dropoffDisplay = document.getElementById('dropoff-location-display');
+    if (dropoffDisplay && bookingData.dropoff) {
+        dropoffDisplay.textContent = bookingData.dropoff;
+    }
+
+    // คำนวณจำนวนวันจากวันที่เลือก
+    let days = 3; // ค่าเริ่มต้น
+    if (bookingData.pickupDate && bookingData.returnDate) {
+        const pickup = new Date(bookingData.pickupDate);
+        const returnD = new Date(bookingData.returnDate);
+        const diffTime = Math.abs(returnD - pickup);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays > 0) {
+            days = diffDays;
+        }
+    }
+
     const subtotal = car.price * days;
-    const protection = 60;
-    const taxesFees = Math.round((subtotal + protection) * 0.085);
-    const total = subtotal + protection + taxesFees;
+    const serviceFee = 0; // ค่าธรรมเนียมบริการ
+    const discount = 500; // ส่วนลด
+    const total = subtotal + serviceFee - discount;
 
     // อัพเดทชื่อรถในส่วน Summary Card
     const carNameTitle = document.querySelector('h3.text-xl.font-bold');
@@ -56,7 +93,7 @@ function updateCarRentDetails() {
     // อัพเดทหมวดหมู่รถ
     const categoryText = document.querySelector('p.text-sm.text-\\[\\#617589\\]');
     if (categoryText && car.category) {
-        categoryText.textContent = `or similar ${car.category}`;
+        categoryText.textContent = `หรือรถในระดับเดียวกัน - ${car.category}`;
     }
 
     // อัพเดทรูปรถในส่วน Summary Card - ใช้ img tag
@@ -73,7 +110,7 @@ function updateCarRentDetails() {
         categoryBadge.textContent = car.category;
     }
 
-    // อัพเดทราคาในสรุปยอด
+    // อัพเดทราคาในสรุปยอด (THB)
     const summaryRows = document.querySelectorAll('.flex.justify-between.text-sm');
     summaryRows.forEach((row) => {
         const firstSpan = row.querySelector('span:first-child');
@@ -83,29 +120,50 @@ function updateCarRentDetails() {
             const text = firstSpan.textContent.toLowerCase();
             
             if (text.includes('rate') || text.includes('day')) {
-                firstSpan.textContent = `Rate (${days} days)`;
-                lastSpan.textContent = `$${subtotal.toFixed(2)}`;
+                firstSpan.textContent = `฿${car.price.toLocaleString()} x ${days} วัน`;
+                lastSpan.textContent = `฿${subtotal.toLocaleString()}`;
             } else if (text.includes('protection')) {
-                lastSpan.textContent = `$${protection.toFixed(2)}`;
+                firstSpan.textContent = 'ค่าธรรมเนียมบริการ';
+                lastSpan.textContent = `฿${serviceFee.toLocaleString()}`;
             } else if (text.includes('tax') || text.includes('fee')) {
-                lastSpan.textContent = `$${taxesFees.toFixed(2)}`;
+                firstSpan.textContent = 'ส่วนลดโปรโมชั่น';
+                lastSpan.textContent = `-฿${discount.toLocaleString()}`;
+                lastSpan.classList.add('text-green-600');
             }
         }
     });
 
-    // อัพเดทยอดรวม
+    // อัพเดทยอดรวม (THB)
     const totalPriceElement = document.querySelector('.text-2xl.font-black.text-primary');
     if (totalPriceElement) {
-        totalPriceElement.textContent = `$${total.toFixed(2)}`;
+        totalPriceElement.textContent = `฿${total.toLocaleString()}`;
     }
 
-    // อัพเดทลิงก์ไปหน้า confirm
+    // อัพเดท label TOTAL PRICE เป็นภาษาไทย
+    const totalLabel = document.querySelector('.text-xs.font-bold.uppercase');
+    if (totalLabel && totalLabel.textContent.includes('TOTAL')) {
+        totalLabel.textContent = 'ยอดรวมสุทธิ';
+    }
+
+    // อัพเดท USD เป็น THB
+    const currencyLabel = document.querySelector('.text-sm.text-\\[\\#617589\\]');
+    if (currencyLabel && currencyLabel.textContent === 'USD') {
+        currencyLabel.textContent = 'THB';
+    }
+
+    // อัพเดทลิงก์ไปหน้า confirm พร้อมส่งข้อมูลทั้งหมด
     const confirmLinks = document.querySelectorAll('a[href*="confirm"]');
     confirmLinks.forEach(link => {
-        link.href = `confirm.html?car=${carId}`;
+        const params = new URLSearchParams();
+        params.set('car', carId);
+        if (bookingData.pickup) params.set('pickup', bookingData.pickup);
+        if (bookingData.dropoff) params.set('dropoff', bookingData.dropoff);
+        if (bookingData.pickupDate) params.set('pickupDate', bookingData.pickupDate);
+        if (bookingData.returnDate) params.set('returnDate', bookingData.returnDate);
+        link.href = `confirm.html?${params.toString()}`;
     });
 
-    document.title = `Rental Checkout - ${car.name} - CarRent`;
+    document.title = `การจอง - ${car.name} - CarRent`;
 }
 
 if (document.readyState === 'loading') {

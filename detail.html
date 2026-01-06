@@ -28,13 +28,10 @@
     class="bg-background-light dark:bg-background-dark font-display text-text-main-light dark:text-text-main-dark antialiased overflow-x-hidden min-h-screen flex flex-col">
     <!-- Navbar -->
     <header
-        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-gray-800 bg-white/90 dark:bg-[#101922]/90 backdrop-blur-md px-4 sm:px-10 py-3 transition-colors">
-        <div class="flex items-center gap-4 text-[#111418] dark:text-white">
-            <div class="size-8 text-primary">
-                <span class="material-symbols-outlined text-3xl">directions_car</span>
-            </div>
-            <h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">CarRent</h2>
-        </div>
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] bg-white px-4 sm:px-10 py-3 shadow-sm">
+        <a href="index.html" class="flex items-center gap-3 text-[#111418] dark:text-white">
+            <img src="images/logo.png" alt="Maxnus Car Rental" class="h-10 w-auto object-contain">
+        </a>
         <!-- Desktop Menu -->
         <div class="hidden lg:flex flex-1 justify-end gap-8">
             <nav class="flex items-center gap-8">
@@ -356,8 +353,9 @@
                                     <span
                                         class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark mr-2">location_on</span>
                                     <input
+                                        id="detail-pickup-location"
                                         class="bg-transparent border-none p-0 text-sm font-medium text-text-main-light dark:text-text-main-dark w-full focus:ring-0 placeholder:text-text-secondary-light"
-                                        placeholder="ระบุจุดรับรถ" type="text" value="สนามบินสุวรรณภูมิ" />
+                                        placeholder="ระบุจุดรับรถ" type="text" />
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-3">

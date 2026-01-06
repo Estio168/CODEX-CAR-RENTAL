@@ -29,19 +29,10 @@
         class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden text-slate-900 dark:text-white font-display">
         <!-- TopNavBar -->
         <header
-            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] bg-white dark:bg-[#1a202c] dark:border-gray-700 px-4 md:px-10 py-3 shadow-sm">
-            <div class="flex items-center gap-4 text-[#111418] dark:text-white">
-                <div class="size-8 text-primary">
-                    <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
-                            fill="currentColor"></path>
-                    </svg>
-                </div>
-                <a href="index.html">
-                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">CarRent</h2>
-                </a>
-            </div>
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] bg-white px-4 sm:px-10 py-3 shadow-sm">
+            <a href="index.html" class="flex items-center gap-3 text-[#111418]">
+                <img src="images/logo.png" alt="Maxnus Car Rental" class="h-10 w-auto object-contain">
+            </a>
             <div class="hidden md:flex flex-1 justify-end gap-8">
                 <div class="flex items-center gap-6">
                     <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
@@ -329,7 +320,7 @@
                                 data-alt="Portrait of Nattapol, Fleet Manager, smiling" src="images/kiw.jpg" />
                         </div>
                         <div>
-                            <a href="https://github.com/kitimasak-jamson" target="_blank" rel="noopener noreferrer"
+                            <a href="https://estio168.github.io/Resume" target="_blank" rel="noopener noreferrer"
                                 class="text-[#111418] dark:text-white text-lg font-bold hover:text-primary transition-colors cursor-pointer">
                                 <h3>Kitimasak Jamson</h3>
                             </a>
@@ -477,51 +468,73 @@
             </a>
         </div>
         <!-- Footer -->
-        <footer class="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pt-16 pb-8 px-10">
-            <div class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between gap-10">
-                <div class="flex flex-col gap-4">
-                    <div class="flex items-center gap-2 text-[#111418] dark:text-white">
-                        <div class="size-6 text-primary">
-                            <span class="material-symbols-outlined">directions_car</span>
-                        </div>
-                        <h2 class="text-lg font-bold">CarRental Co</h2>
-                    </div>
-                    <p class="text-[#617589] dark:text-slate-400 text-sm max-w-[300px]">เพื่อนร่วมเดินทางที่คุณวางใจได้
-                        ให้บริการเช่ารถคุณภาพสูงครอบคลุมทั่วไทย</p>
-                </div>
-                <div class="flex gap-10 md:gap-20">
-                    <div class="flex flex-col gap-3">
-                        <h3 class="font-bold text-[#111418] dark:text-white">บริษัท</h3>
-                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="contact.html">เกี่ยวกับเรา</a>
-                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="#">ร่วมงานกับเรา</a>
-                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary" href="#">ข่าวสาร</a>
-                    </div>
-                    <div class="flex flex-col gap-3">
-                        <h3 class="font-bold text-[#111418] dark:text-white">ช่วยเหลือ</h3>
-                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="tellcontact.html">ศูนย์ช่วยเหลือ</a>
-                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="tellcontact.html">วิธีการจอง</a>
-                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="#">เงื่อนไขการใช้บริการ</a>
-                        <a class="text-[#617589] dark:text-slate-400 text-sm hover:text-primary"
-                            href="#">นโยบายความเป็นส่วนตัว</a>
-                    </div>
-                    <div class="flex flex-col gap-3">
-                        <h3 class="font-bold text-[#111418] dark:text-white">ติดตามเรา</h3>
+        <footer class="bg-[#101922] text-white pt-16 pb-8 border-t border-gray-800">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                    <!-- Brand -->
+                    <div>
+                        <a href="index.html" class="flex items-center gap-3 text-white mb-6">
+                            <img src="images/logo.png" alt="Maxnus Car Rental" class="h-10 w-auto object-contain brightness-0 invert">
+                        </a>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            ให้บริการเช่ารถคุณภาพเยี่ยมทั่วไทย มั่นใจด้วยมาตรฐานความปลอดภัยและการบริการระดับมืออาชีพ
+                        </p>
                         <div class="flex gap-4">
-                            <a class="text-[#617589] dark:text-slate-400 hover:text-primary" href="#"><span
+                            <a class="text-gray-400 hover:text-primary transition-colors" href="#"><span
                                     class="material-symbols-outlined">public</span></a>
-                            <a class="text-[#617589] dark:text-slate-400 hover:text-primary" href="#"><span
-                                    class="material-symbols-outlined">share</span></a>
+                            <a class="text-gray-400 hover:text-primary transition-colors" href="#"><span
+                                    class="material-symbols-outlined">mail</span></a>
+                            <a class="text-gray-400 hover:text-primary transition-colors" href="#"><span
+                                    class="material-symbols-outlined">call</span></a>
                         </div>
                     </div>
+                    <!-- Links -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">เกี่ยวกับเรา</h3>
+                        <ul class="flex flex-col gap-3 text-gray-400">
+                            <li><a class="hover:text-primary transition-colors" href="contact.html">ประวัติความเป็นมา</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="contact.html#team">ทีมงาน</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">ข่าวสารและกิจกรรม</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">ร่วมงานกับเรา</a></li>
+                        </ul>
+                    </div>
+                    <!-- Services -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">บริการลูกค้า</h3>
+                        <ul class="flex flex-col gap-3 text-gray-400">
+                            <li><a class="hover:text-primary transition-colors" href="tellcontact.html">ศูนย์ช่วยเหลือ</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="tellcontact.html">วิธีการจอง</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">เงื่อนไขการใช้บริการ</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">นโยบายความเป็นส่วนตัว</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-6">ติดต่อเรา</h3>
+                        <ul class="flex flex-col gap-4 text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined mt-0.5 text-primary">location_on</span>
+                                <span>123 ถนนสุขุมวิท, แขวงคลองเตย, เขตคลองเตย, กรุงเทพมหานคร 10110</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">phone</span>
+                                <span>02-123-4567</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">email</span>
+                                <span>contact@carrent.com</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="border-t border-slate-100 dark:border-slate-800 mt-12 pt-8 text-center">
-                <p class="text-[#617589] dark:text-slate-500 text-sm">© 2023 CarRental Co. สงวนลิขสิทธิ์.</p>
+                <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-500 text-sm">© 2025 CODEX CAR RENTAL. สงวนลิขสิทธิ์.</p>
+                    <div class="flex gap-6 text-sm text-gray-500">
+                        <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                        <a class="hover:text-white transition-colors" href="contact.html#team">Terms of Service</a>
+                        <a class="hover:text-white transition-colors" href="#">Cookies Settings</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
