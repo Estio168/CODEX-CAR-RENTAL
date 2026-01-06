@@ -123,7 +123,6 @@ async function setupSearchAutocomplete() {
         const pickupAutocomplete = new PlaceAutocompleteElement();
         pickupAutocomplete.id = 'search-pickup-location';
         pickupAutocomplete.setAttribute('placeholder', 'สถานที่รับรถ');
-        pickupAutocomplete.componentRestrictions = { country: 'th' };
         pickupAutocomplete.style.cssText = 'width: 100%;';
         
         // แทนที่ input เดิมด้วย PlaceAutocompleteElement

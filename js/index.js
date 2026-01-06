@@ -72,7 +72,6 @@ async function setupAutocomplete() {
         const pickupAutocomplete = new PlaceAutocompleteElement();
         pickupAutocomplete.id = 'pickup-location';
         pickupAutocomplete.setAttribute('placeholder', 'สถานที่รับรถ');
-        pickupAutocomplete.componentRestrictions = { country: 'th' };
         pickupAutocomplete.style.cssText = 'width: 100%;';
         
         // แทนที่ input เดิมด้วย PlaceAutocompleteElement
@@ -88,7 +87,6 @@ async function setupAutocomplete() {
         const dropoffAutocomplete = new PlaceAutocompleteElement();
         dropoffAutocomplete.id = 'dropoff-location';
         dropoffAutocomplete.setAttribute('placeholder', 'จุดคืนรถ (ถ้าต่างจากจุดรับ)');
-        dropoffAutocomplete.componentRestrictions = { country: 'th' };
         dropoffAutocomplete.style.cssText = 'width: 100%;';
         
         // แทนที่ input เดิมด้วย PlaceAutocompleteElement
