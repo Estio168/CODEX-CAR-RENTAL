@@ -85,13 +85,14 @@ function updateCarRentDetails() {
     const total = subtotal + serviceFee - discount;
 
     // อัพเดทชื่อรถในส่วน Summary Card
-    const carNameTitle = document.querySelector('h3.text-xl.font-bold');
+    const summaryCard = document.querySelector('.sticky.top-24');
+    const carNameTitle = summaryCard ? summaryCard.querySelector('h3.text-xl.font-bold') : null;
     if (carNameTitle) {
         carNameTitle.textContent = car.name;
     }
 
-    // อัพเดทหมวดหมู่รถ
-    const categoryText = document.querySelector('p.text-sm.text-\\[\\#617589\\]');
+    // อัพเดทหมวดหมู่รถ (เฉพาะใน Summary Card)
+    const categoryText = summaryCard ? summaryCard.querySelector('.p-6 > .mb-4 > p') : null;
     if (categoryText && car.category) {
         categoryText.textContent = `หรือรถในระดับเดียวกัน - ${car.category}`;
     }

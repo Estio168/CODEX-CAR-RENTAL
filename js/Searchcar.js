@@ -97,7 +97,7 @@ function setupCarLinks() {
 }
 
 // Google Places Autocomplete สำหรับหน้า Search
-function initSearchPageAutocomplete() {
+window.initSearchPageAutocomplete = function() {
     console.log('Google Maps API loaded on Search page');
     
     if (document.readyState === 'loading') {
@@ -105,7 +105,7 @@ function initSearchPageAutocomplete() {
     } else {
         setupSearchAutocomplete();
     }
-}
+};
 
 function setupSearchAutocomplete() {
     const pickupInput = document.getElementById('search-pickup-location');

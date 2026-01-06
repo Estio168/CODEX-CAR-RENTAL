@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Google Places Autocomplete - Global callback function
-function initGooglePlacesAutocomplete() {
+window.initGooglePlacesAutocomplete = function() {
     console.log('Google Maps API loaded successfully');
     
     // รอให้ DOM โหลดเสร็จก่อนเรียกใช้งาน
@@ -53,7 +53,7 @@ function initGooglePlacesAutocomplete() {
     } else {
         setupAutocomplete();
     }
-}
+};
 
 function setupAutocomplete() {
     const pickupInput = document.getElementById('pickup-location');

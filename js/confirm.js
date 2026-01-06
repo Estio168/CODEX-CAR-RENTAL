@@ -32,6 +32,26 @@ function getCarIdFromURL() {
     return urlParams.get('car') || 'vios';
 }
 
+function getBookingDataFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+        pickup: urlParams.get('pickup') || 'สนามบินสุวรรณภูมิ',
+        dropoff: urlParams.get('dropoff') || 'สนามบินสุวรรณภูมิ',
+        pickupDate: urlParams.get('pickupDate') || '',
+        returnDate: urlParams.get('returnDate') || ''
+    };
+}
+
+function formatThaiDate(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const thaiMonths = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+    const day = date.getDate();
+    const month = thaiMonths[date.getMonth()];
+    const year = date.getFullYear() + 543;
+    return `${day} ${month} ${year}`;
+}
+
 function updateConfirmDetails() {
     const carId = getCarIdFromURL();
     const car = carsData[carId];
@@ -93,6 +113,29 @@ function updateConfirmDetails() {
     const totalElement = document.querySelector('.text-2xl.font-black.text-primary');
     if (totalElement) {
         totalElement.textContent = `฿${total.toLocaleString()}`;
+    }
+
+    // อัพเดทข้อมูลสถานที่และวันที่จาก URL
+    const bookingData = getBookingDataFromURL();
+    
+    const pickupLocationEl = document.getElementById('confirm-pickup-location');
+    if (pickupLocationEl && bookingData.pickup) {
+        pickupLocationEl.textContent = bookingData.pickup;
+    }
+    
+    const dropoffLocationEl = document.getElementById('confirm-dropoff-location');
+    if (dropoffLocationEl && bookingData.dropoff) {
+        dropoffLocationEl.textContent = bookingData.dropoff;
+    }
+    
+    const pickupDateEl = document.getElementById('confirm-pickup-date');
+    if (pickupDateEl && bookingData.pickupDate) {
+        pickupDateEl.textContent = formatThaiDate(bookingData.pickupDate);
+    }
+    
+    const dropoffDateEl = document.getElementById('confirm-dropoff-date');
+    if (dropoffDateEl && bookingData.returnDate) {
+        dropoffDateEl.textContent = formatThaiDate(bookingData.returnDate);
     }
 
     document.title = `การจองสำเร็จ - ${car.name} - CarRent`;

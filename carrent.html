@@ -128,7 +128,6 @@
                                         <div class="flex flex-col">
                                             <span id="pickup-location-display" class="font-bold text-sm text-[#111418] dark:text-white">สนามบินสุวรรณภูมิ
                                                 กรุงเทพฯ</span>
-                                            <span class="text-xs text-[#617589] dark:text-gray-400">อาคาร 1</span>
                                         </div>
                                     </div>
                                     <div class="flex gap-2 mt-2">
@@ -149,7 +148,6 @@
                                         <div class="flex flex-col">
                                             <span id="dropoff-location-display" class="font-bold text-sm text-[#111418] dark:text-white">สนามบินสุวรรณภูมิ
                                                 กรุงเทพฯ</span>
-                                            <span class="text-xs text-[#617589] dark:text-gray-400">อาคาร 1</span>
                                         </div>
                                     </div>
                                     <div class="flex gap-2 mt-2">
@@ -307,7 +305,7 @@
                         class="bg-white dark:bg-[#1a202c] rounded-xl shadow-sm border border-[#e5e7eb] dark:border-[#2d3748]">
                         <div
                             class="px-6 py-4 border-b border-[#e5e7eb] dark:border-[#2d3748] bg-gray-50 dark:bg-[#2d3748]/50">
-                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">3. Protection Plans</h3>
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">3. แผนคุ้มครอง</h3>
                         </div>
                         <div class="p-6 flex flex-col gap-4">
                             <!-- Basic Plan -->
@@ -315,15 +313,14 @@
                                 class="relative flex flex-col sm:flex-row gap-4 p-4 rounded-xl border border-[#e5e7eb] dark:border-[#4a5568] cursor-pointer hover:border-primary dark:hover:border-primary transition-all">
                                 <div class="flex items-start gap-3">
                                     <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-gray-300"
-                                        name="insurance" type="radio" />
+                                        name="insurance" type="radio" value="basic" data-price="0" />
                                     <div>
-                                        <h4 class="font-bold text-[#111418] dark:text-white">Basic Protection</h4>
-                                        <p class="text-sm text-[#617589] dark:text-gray-400 mt-1">Includes Theft
-                                            Protection and Collision Damage Waiver with deductible.</p>
+                                        <h4 class="font-bold text-[#111418] dark:text-white">แผนพื้นฐาน</h4>
+                                        <p class="text-sm text-[#617589] dark:text-gray-400 mt-1">รวมประกันโจรกรรมและความเสียหายจากการชน พร้อมค่าเสียหายส่วนแรก</p>
                                     </div>
                                 </div>
                                 <div class="sm:ml-auto flex items-center justify-end">
-                                    <span class="font-bold text-green-600 dark:text-green-400">Free</span>
+                                    <span class="font-bold text-green-600 dark:text-green-400">ฟรี</span>
                                 </div>
                             </label>
                             <!-- Standard Plan -->
@@ -331,20 +328,19 @@
                                 class="relative flex flex-col sm:flex-row gap-4 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer transition-all">
                                 <div
                                     class="absolute -top-3 left-6 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                                    Recommended</div>
+                                    แนะนำ</div>
                                 <div class="flex items-start gap-3">
                                     <input checked=""
                                         class="mt-1 w-5 h-5 text-primary focus:ring-primary border-gray-300"
-                                        name="insurance" type="radio" />
+                                        name="insurance" type="radio" value="standard" data-price="350" />
                                     <div>
-                                        <h4 class="font-bold text-[#111418] dark:text-white">Standard Cover</h4>
-                                        <p class="text-sm text-[#617589] dark:text-gray-400 mt-1">Reduced deductible for
-                                            damage and theft. Includes glass and tires.</p>
+                                        <h4 class="font-bold text-[#111418] dark:text-white">แผนมาตรฐาน</h4>
+                                        <p class="text-sm text-[#617589] dark:text-gray-400 mt-1">ลดค่าเสียหายส่วนแรกกรณีเกิดอุบัติเหตุหรือโจรกรรม รวมกระจกและยาง</p>
                                     </div>
                                 </div>
                                 <div class="sm:ml-auto flex items-center justify-end">
-                                    <span class="font-bold text-[#111418] dark:text-white">+$12<span
-                                            class="text-xs font-normal text-gray-500">/day</span></span>
+                                    <span class="font-bold text-[#111418] dark:text-white">+฿350<span
+                                            class="text-xs font-normal text-gray-500">/วัน</span></span>
                                 </div>
                             </label>
                             <!-- Premium Plan -->
@@ -352,16 +348,15 @@
                                 class="relative flex flex-col sm:flex-row gap-4 p-4 rounded-xl border border-[#e5e7eb] dark:border-[#4a5568] cursor-pointer hover:border-primary dark:hover:border-primary transition-all">
                                 <div class="flex items-start gap-3">
                                     <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-gray-300"
-                                        name="insurance" type="radio" />
+                                        name="insurance" type="radio" value="premium" data-price="700" />
                                     <div>
-                                        <h4 class="font-bold text-[#111418] dark:text-white">Peace of Mind</h4>
-                                        <p class="text-sm text-[#617589] dark:text-gray-400 mt-1">Zero deductible.
-                                            Everything covered including personal accident.</p>
+                                        <h4 class="font-bold text-[#111418] dark:text-white">แผนอุ่นใจ</h4>
+                                        <p class="text-sm text-[#617589] dark:text-gray-400 mt-1">ไม่มีค่าเสียหายส่วนแรก คุ้มครองทุกกรณีรวมอุบัติเหตุส่วนบุคคล</p>
                                     </div>
                                 </div>
                                 <div class="sm:ml-auto flex items-center justify-end">
-                                    <span class="font-bold text-[#111418] dark:text-white">+$24<span
-                                            class="text-xs font-normal text-gray-500">/day</span></span>
+                                    <span class="font-bold text-[#111418] dark:text-white">+฿700<span
+                                            class="text-xs font-normal text-gray-500">/วัน</span></span>
                                 </div>
                             </label>
                         </div>
@@ -422,9 +417,9 @@
                                         <span
                                             class="text-xs text-[#617589] dark:text-gray-400 font-medium uppercase">Total
                                             Price</span>
-                                        <span class="text-2xl font-black text-primary">$552.50</span>
+                                        <span class="text-2xl font-black text-primary">฿552.50</span>
                                     </div>
-                                    <span class="text-xs text-[#617589] dark:text-gray-400 mb-1">USD</span>
+                                    <span class="text-xs text-[#617589] dark:text-gray-400 mb-1">THB</span>
                                 </div>
                             </div>
                         </div>
