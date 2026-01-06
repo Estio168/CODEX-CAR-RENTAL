@@ -96,18 +96,18 @@ function setupCarLinks() {
     });
 }
 
-// Google Places Autocomplete สำหรับหน้า Search
-window.initSearchPageAutocomplete = function() {
+// Google Places Autocomplete สำหรับหน้า Search (New API)
+window.initSearchPageAutocomplete = async function() {
     console.log('Google Maps API loaded on Search page');
     
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', setupSearchAutocomplete);
     } else {
-        setupSearchAutocomplete();
+        await setupSearchAutocomplete();
     }
 };
 
-function setupSearchAutocomplete() {
+async function setupSearchAutocomplete() {
     const pickupInput = document.getElementById('search-pickup-location');
     
     if (!pickupInput) {
@@ -115,18 +115,16 @@ function setupSearchAutocomplete() {
         return;
     }
     
-    if (!window.google || !window.google.maps || !window.google.maps.places) {
-        console.log('Google Maps Places API not loaded');
-        return;
-    }
-    
     try {
+        // โหลด Places library แบบใหม่
+        const { Autocomplete } = await google.maps.importLibrary("places");
+        
         const options = {
             componentRestrictions: { country: 'th' },
             fields: ['place_id', 'name', 'formatted_address', 'geometry']
         };
         
-        const pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
+        const pickupAutocomplete = new Autocomplete(pickupInput, options);
         pickupAutocomplete.addListener('place_changed', function() {
             const place = pickupAutocomplete.getPlace();
             if (place && place.name) {

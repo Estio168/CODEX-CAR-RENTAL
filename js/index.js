@@ -43,19 +43,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Google Places Autocomplete - Global callback function
-window.initGooglePlacesAutocomplete = function() {
+// Google Places Autocomplete - Global callback function (New API)
+window.initGooglePlacesAutocomplete = async function() {
     console.log('Google Maps API loaded successfully');
     
     // รอให้ DOM โหลดเสร็จก่อนเรียกใช้งาน
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', setupAutocomplete);
     } else {
-        setupAutocomplete();
+        await setupAutocomplete();
     }
 };
 
-function setupAutocomplete() {
+async function setupAutocomplete() {
     const pickupInput = document.getElementById('pickup-location');
     const dropoffInput = document.getElementById('dropoff-location');
     
@@ -64,12 +64,10 @@ function setupAutocomplete() {
         return;
     }
     
-    if (!window.google || !window.google.maps || !window.google.maps.places) {
-        console.log('Google Maps Places API not loaded');
-        return;
-    }
-    
     try {
+        // โหลด Places library แบบใหม่
+        const { Autocomplete } = await google.maps.importLibrary("places");
+        
         // ตั้งค่า options สำหรับ autocomplete
         const options = {
             componentRestrictions: { country: 'th' }, // จำกัดเฉพาะประเทศไทย
@@ -77,7 +75,7 @@ function setupAutocomplete() {
         };
         
         // สร้าง autocomplete สำหรับช่องรับรถ
-        const pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
+        const pickupAutocomplete = new Autocomplete(pickupInput, options);
         pickupAutocomplete.addListener('place_changed', function() {
             const place = pickupAutocomplete.getPlace();
             if (place && place.name) {
@@ -86,7 +84,7 @@ function setupAutocomplete() {
         });
         
         // สร้าง autocomplete สำหรับช่องคืนรถ
-        const dropoffAutocomplete = new google.maps.places.Autocomplete(dropoffInput, options);
+        const dropoffAutocomplete = new Autocomplete(dropoffInput, options);
         dropoffAutocomplete.addListener('place_changed', function() {
             const place = dropoffAutocomplete.getPlace();
             if (place && place.name) {
