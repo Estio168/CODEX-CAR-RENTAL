@@ -69,10 +69,12 @@ async function setupAutocomplete() {
         const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
         
         // สร้าง autocomplete สำหรับช่องรับรถ
-        const pickupAutocomplete = new PlaceAutocompleteElement({
-            inputElement: pickupInput,
-            componentRestrictions: { country: 'th' }
-        });
+        const pickupAutocomplete = new PlaceAutocompleteElement();
+        pickupAutocomplete.inputElement = pickupInput;
+        pickupAutocomplete.componentRestrictions = { country: 'th' };
+        
+        // ⭐ สำคัญที่สุด - ต้อง append ไปที่ body
+        document.body.appendChild(pickupAutocomplete);
         
         pickupAutocomplete.addEventListener('gmp-placeselect', (event) => {
             const place = event.place;
@@ -80,17 +82,19 @@ async function setupAutocomplete() {
         });
         
         // สร้าง autocomplete สำหรับช่องคืนรถ
-        const dropoffAutocomplete = new PlaceAutocompleteElement({
-            inputElement: dropoffInput,
-            componentRestrictions: { country: 'th' }
-        });
+        const dropoffAutocomplete = new PlaceAutocompleteElement();
+        dropoffAutocomplete.inputElement = dropoffInput;
+        dropoffAutocomplete.componentRestrictions = { country: 'th' };
+        
+        // ⭐ สำคัญที่สุด - ต้อง append ไปที่ body
+        document.body.appendChild(dropoffAutocomplete);
         
         dropoffAutocomplete.addEventListener('gmp-placeselect', (event) => {
             const place = event.place;
             console.log('สถานที่คืนรถ:', place.formattedAddress);
         });
         
-        console.log('Google Places Autocomplete พร้อมใช้งาน');
+        console.log('PlaceAutocompleteElement ถูกสร้างและ append แล้ว');
     } catch (error) {
         console.error('Error initializing autocomplete:', error);
     }
