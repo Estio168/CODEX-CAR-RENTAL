@@ -82,7 +82,20 @@ function updateCarRentDetails() {
     const subtotal = car.price * days;
     const serviceFee = 0; // ค่าธรรมเนียมบริการ
     const discount = 500; // ส่วนลด
+    let protectionPrice = 0; // ค่าแผนคุ้มครอง
     const total = subtotal + serviceFee - discount;
+
+    // เก็บข้อมูลเพื่อใช้คำนวณราคาแผนคุ้มครอง
+    window.carrentData = {
+        carPrice: car.price,
+        days: days,
+        subtotal: subtotal,
+        serviceFee: serviceFee,
+        discount: discount
+    };
+
+    // ตั้งค่า event listener สำหรับแผนคุ้มครอง
+    setupProtectionPlanListeners();
 
     // อัพเดทชื่อรถในส่วน Summary Card
     const summaryCard = document.querySelector('.sticky.top-24');
@@ -275,7 +288,7 @@ function renderCalendars() {
                 </div>
                 <div id="month1-grid" class="grid grid-cols-7 gap-1 text-center">
                     ${renderDayHeaders()}
-                    ${renderMonthDays(leftYear, leftMonth)}
+                    ${renderMonthDays(leftYear, leftMonth, false)}
                 </div>
             </div>
             <!-- Month 2 (Right) - วันคืนรถ -->
@@ -291,7 +304,7 @@ function renderCalendars() {
                 </div>
                 <div id="month2-grid" class="grid grid-cols-7 gap-1 text-center">
                     ${renderDayHeaders()}
-                    ${renderMonthDays(rightYear, rightMonth)}
+                    ${renderMonthDays(rightYear, rightMonth, true)}
                 </div>
             </div>
         </div>
@@ -308,7 +321,7 @@ function renderDayHeaders() {
     return days.map(d => `<div class="text-xs font-bold text-[#617589] dark:text-gray-400 py-2">${d}</div>`).join('');
 }
 
-function renderMonthDays(year, month) {
+function renderMonthDays(year, month, isReturnCalendar = false) {
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const today = new Date();
@@ -328,6 +341,13 @@ function renderMonthDays(year, month) {
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const isPast = date < today;
         
+        // ตรวจสอบว่าวันคืนรถต้องไม่น้อยกว่าวันรับรถ
+        let isBeforePickup = false;
+        if (isReturnCalendar && selectedStartDate) {
+            const startDateOnly = new Date(selectedStartDate.getFullYear(), selectedStartDate.getMonth(), selectedStartDate.getDate());
+            isBeforePickup = date < startDateOnly;
+        }
+        
         // ตรวจสอบว่าเป็นวันที่เลือกหรือไม่
         const isStart = selectedStartDate && 
             date.getFullYear() === selectedStartDate.getFullYear() && 
@@ -340,8 +360,9 @@ function renderMonthDays(year, month) {
         
         let buttonStyle = '';
         let buttonClass = 'h-10 w-10 flex items-center justify-center text-sm rounded-full transition-all ';
+        const isDisabled = isPast || isBeforePickup;
         
-        if (isPast) {
+        if (isDisabled) {
             buttonClass += 'text-gray-300 dark:text-gray-600 cursor-not-allowed';
         } else if (isStart || isEnd) {
             // วันที่เลือก - สีฟ้า
@@ -351,7 +372,7 @@ function renderMonthDays(year, month) {
             buttonClass += 'hover:bg-gray-100 dark:hover:bg-gray-700 text-[#111418] dark:text-white cursor-pointer';
         }
         
-        html += `<button class="${buttonClass}" style="${buttonStyle}" data-date="${dateStr}" ${isPast ? 'disabled' : ''}>${day}</button>`;
+        html += `<button class="${buttonClass}" style="${buttonStyle}" data-date="${dateStr}" ${isDisabled ? 'disabled' : ''}>${day}</button>`;
     }
     
     return html;
@@ -492,4 +513,82 @@ function updateBookingDates() {
 
 function formatDateForURL(date) {
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+}
+
+// ฟังก์ชันสำหรับคำนวณราคาแผนคุ้มครอง
+function setupProtectionPlanListeners() {
+    const insuranceRadios = document.querySelectorAll('input[name="insurance"]');
+    
+    insuranceRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            updateTotalWithProtection();
+        });
+    });
+    
+    // คำนวณครั้งแรกด้วย (มี checked="checked" ที่แผนมาตรฐาน)
+    updateTotalWithProtection();
+}
+
+function updateTotalWithProtection() {
+    if (!window.carrentData) return;
+    
+    const selectedPlan = document.querySelector('input[name="insurance"]:checked');
+    const protectionPricePerDay = selectedPlan ? parseInt(selectedPlan.getAttribute('data-price')) || 0 : 0;
+    const protectionTotal = protectionPricePerDay * window.carrentData.days;
+    
+    // เก็บค่าแผนคุ้มครองไว้ใน global
+    window.carrentData.protectionPricePerDay = protectionPricePerDay;
+    window.carrentData.protectionTotal = protectionTotal;
+    
+    const { subtotal, serviceFee, discount, days, carPrice } = window.carrentData;
+    
+    // คำนวณ VAT 7% จาก (ราคารถ + แผนคุ้มครอง)
+    const beforeVat = subtotal + protectionTotal;
+    const vat = Math.round(beforeVat * 0.07);
+    
+    const newTotal = subtotal + serviceFee + protectionTotal + vat - discount;
+    
+    // อัพเดท row แผนคุ้มครอง
+    const protectionRow = document.getElementById('protection-row');
+    if (protectionRow) {
+        const firstSpan = protectionRow.querySelector('span:first-child');
+        const lastSpan = protectionRow.querySelector('span:last-child');
+        
+        if (firstSpan && lastSpan) {
+            if (protectionTotal > 0) {
+                firstSpan.textContent = `แผนคุ้มครอง (฿${protectionPricePerDay} x ${days} วัน)`;
+                lastSpan.textContent = `฿${protectionTotal.toLocaleString()}`;
+                lastSpan.classList.remove('text-green-600');
+            } else {
+                firstSpan.textContent = 'แผนคุ้มครอง';
+                lastSpan.textContent = 'ฟรี';
+                lastSpan.classList.add('text-green-600');
+            }
+        }
+    }
+    
+    // อัพเดท row VAT
+    const vatRow = document.getElementById('vat-row');
+    if (vatRow) {
+        const firstSpan = vatRow.querySelector('span:first-child');
+        const lastSpan = vatRow.querySelector('span:last-child');
+        
+        if (firstSpan && lastSpan) {
+            firstSpan.textContent = 'VAT 7%';
+            lastSpan.textContent = `฿${vat.toLocaleString()}`;
+        }
+    }
+    
+    // อัพเดทยอดรวม
+    const totalPriceElement = document.querySelector('.text-2xl.font-black.text-primary');
+    if (totalPriceElement) {
+        totalPriceElement.textContent = `฿${newTotal.toLocaleString()}`;
+    }
+    
+    console.log('อัพเดทราคารวมกับแผนคุ้มครอง:', {
+        protectionPricePerDay,
+        protectionTotal,
+        vat,
+        newTotal
+    });
 }

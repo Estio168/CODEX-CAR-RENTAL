@@ -108,8 +108,34 @@ function getBookingDataFromURL() {
         pickup: pickup,
         dropoff: urlParams.get('dropoff') || pickup, // ถ้าไม่มี dropoff ใช้ค่าเดียวกับ pickup
         pickupDate: urlParams.get('pickupDate') || '',
-        returnDate: urlParams.get('returnDate') || ''
+        returnDate: urlParams.get('returnDate') || '',
+        pickupTime: urlParams.get('pickupTime') || '10:00',
+        returnTime: urlParams.get('returnTime') || '10:00'
     };
+}
+
+// แปลงวันที่เป็นภาษาไทย
+function formatThaiDate(dateStr) {
+    if (!dateStr) return '-';
+    
+    const months = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+    
+    // รองรับทั้ง YYYY-MM-DD และ DD/MM/YYYY
+    let date;
+    if (dateStr.includes('-')) {
+        date = new Date(dateStr);
+    } else if (dateStr.includes('/')) {
+        const parts = dateStr.split('/');
+        date = new Date(parts[2], parts[1] - 1, parts[0]);
+    } else {
+        return dateStr;
+    }
+    
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = (date.getFullYear() + 543).toString().slice(-2); // พ.ศ. 2 หลัก
+    
+    return `${day} ${month} ${year}`;
 }
 
 function updateCarDetails() {
@@ -131,6 +157,25 @@ function updateCarDetails() {
     const pickupInput = document.getElementById('detail-pickup-location');
     if (pickupInput && bookingData.pickup) {
         pickupInput.value = bookingData.pickup;
+    }
+    
+    // อัพเดทวันและเวลารับรถ
+    const pickupDateInput = document.getElementById('detail-pickup-date');
+    const pickupTimeInput = document.getElementById('detail-pickup-time');
+    const returnDateInput = document.getElementById('detail-return-date');
+    const returnTimeInput = document.getElementById('detail-return-time');
+    
+    if (pickupDateInput) {
+        pickupDateInput.value = formatThaiDate(bookingData.pickupDate);
+    }
+    if (pickupTimeInput) {
+        pickupTimeInput.value = bookingData.pickupTime || '10:00';
+    }
+    if (returnDateInput) {
+        returnDateInput.value = formatThaiDate(bookingData.returnDate);
+    }
+    if (returnTimeInput) {
+        returnTimeInput.value = bookingData.returnTime || '10:00';
     }
 
     // อัพเดท page title

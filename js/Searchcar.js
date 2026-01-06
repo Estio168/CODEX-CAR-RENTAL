@@ -21,7 +21,9 @@ let searchData = {
     pickup: '',
     dropoff: '',
     pickupDate: '',
-    returnDate: ''
+    returnDate: '',
+    pickupTime: '10:00',
+    returnTime: '10:00'
 };
 
 // โหลดข้อมูลจาก URL parameters เมื่อหน้าโหลดเสร็จ
@@ -37,6 +39,8 @@ function loadSearchParams() {
     searchData.dropoff = urlParams.get('dropoff') || '';
     searchData.pickupDate = urlParams.get('pickupDate') || '';
     searchData.returnDate = urlParams.get('returnDate') || '';
+    searchData.pickupTime = urlParams.get('pickupTime') || '10:00';
+    searchData.returnTime = urlParams.get('returnTime') || '10:00';
     
     // ใส่ค่าลงใน input fields
     const pickupInput = document.getElementById('search-pickup-location');
@@ -54,6 +58,27 @@ function loadSearchParams() {
     const returnDateInput = document.getElementById('search-return-date');
     if (returnDateInput && searchData.returnDate) {
         returnDateInput.value = searchData.returnDate;
+    }
+    
+    // ตั้งค่า min date เป็นวันนี้ และ disable วันคืนรถก่อนวันรับรถ
+    const today = new Date().toISOString().split('T')[0];
+    if (pickupDateInput) {
+        pickupDateInput.min = today;
+    }
+    if (returnDateInput) {
+        returnDateInput.min = pickupDateInput?.value || today;
+    }
+    
+    // เมื่อเปลี่ยนวันรับรถ ให้อัพเดท min ของวันคืนรถ
+    if (pickupDateInput && returnDateInput) {
+        pickupDateInput.addEventListener('change', function() {
+            if (this.value) {
+                returnDateInput.min = this.value;
+                if (returnDateInput.value && returnDateInput.value < this.value) {
+                    returnDateInput.value = this.value;
+                }
+            }
+        });
     }
     
     console.log('Search params loaded:', searchData);
@@ -89,6 +114,8 @@ function setupCarLinks() {
             if (dropoff) params.set('dropoff', dropoff);
             if (pickupDate) params.set('pickupDate', pickupDate);
             if (returnDate) params.set('returnDate', returnDate);
+            params.set('pickupTime', searchData.pickupTime);
+            params.set('returnTime', searchData.returnTime);
             
             console.log('Navigating to detail.html with params:', params.toString());
             window.location.href = originalUrl.pathname + '?' + params.toString();

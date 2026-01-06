@@ -129,6 +129,30 @@ document.addEventListener('DOMContentLoaded', function() {
 // ปุ่มค้นหารถ - ส่งข้อมูลไปหน้า Searchcar.html
 document.addEventListener('DOMContentLoaded', function() {
     const searchBtn = document.getElementById('search-btn');
+    const pickupDateInput = document.getElementById('pickup-date');
+    const returnDateInput = document.getElementById('return-date');
+    
+    // ตั้งค่า min date เป็นวันนี้
+    const today = new Date().toISOString().split('T')[0];
+    if (pickupDateInput) {
+        pickupDateInput.min = today;
+    }
+    if (returnDateInput) {
+        returnDateInput.min = today;
+    }
+    
+    // เมื่อเลือกวันรับรถ ให้ตั้ง min ของวันคืนรถ
+    if (pickupDateInput && returnDateInput) {
+        pickupDateInput.addEventListener('change', function() {
+            if (this.value) {
+                returnDateInput.min = this.value;
+                // ถ้าวันคืนรถน้อยกว่าวันรับรถ ให้ reset
+                if (returnDateInput.value && returnDateInput.value < this.value) {
+                    returnDateInput.value = this.value;
+                }
+            }
+        });
+    }
     
     if (searchBtn) {
         searchBtn.addEventListener('click', function() {
@@ -143,6 +167,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (dropoffLocation) params.set('dropoff', dropoffLocation);
             if (pickupDate) params.set('pickupDate', pickupDate);
             if (returnDate) params.set('returnDate', returnDate);
+            // เพิ่มเวลา default
+            params.set('pickupTime', '10:00');
+            params.set('returnTime', '10:00');
             
             // ไปหน้า Searchcar.html พร้อมข้อมูล
             window.location.href = 'Searchcar.html?' + params.toString();
