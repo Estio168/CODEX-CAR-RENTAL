@@ -116,20 +116,17 @@ async function setupSearchAutocomplete() {
     }
     
     try {
-        // โหลด Places library แบบใหม่
-        const { Autocomplete } = await google.maps.importLibrary("places");
+        // โหลด Places library แบบใหม่ (PlaceAutocompleteElement)
+        const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
         
-        const options = {
-            componentRestrictions: { country: 'th' },
-            fields: ['place_id', 'name', 'formatted_address', 'geometry']
-        };
+        const pickupAutocomplete = new PlaceAutocompleteElement({
+            inputElement: pickupInput,
+            componentRestrictions: { country: 'th' }
+        });
         
-        const pickupAutocomplete = new Autocomplete(pickupInput, options);
-        pickupAutocomplete.addListener('place_changed', function() {
-            const place = pickupAutocomplete.getPlace();
-            if (place && place.name) {
-                console.log('สถานที่รับรถ:', place.name, place.formatted_address);
-            }
+        pickupAutocomplete.addEventListener('gmp-placeselect', (event) => {
+            const place = event.place;
+            console.log('สถานที่รับรถ:', place.formattedAddress);
         });
         
         console.log('Google Places Autocomplete พร้อมใช้งานในหน้า Search');

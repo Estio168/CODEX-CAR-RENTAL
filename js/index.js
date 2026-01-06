@@ -65,31 +65,29 @@ async function setupAutocomplete() {
     }
     
     try {
-        // โหลด Places library แบบใหม่
-        const { Autocomplete } = await google.maps.importLibrary("places");
-        
-        // ตั้งค่า options สำหรับ autocomplete
-        const options = {
-            componentRestrictions: { country: 'th' }, // จำกัดเฉพาะประเทศไทย
-            fields: ['place_id', 'name', 'formatted_address', 'geometry']
-        };
+        // โหลด Places library แบบใหม่ (PlaceAutocompleteElement)
+        const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
         
         // สร้าง autocomplete สำหรับช่องรับรถ
-        const pickupAutocomplete = new Autocomplete(pickupInput, options);
-        pickupAutocomplete.addListener('place_changed', function() {
-            const place = pickupAutocomplete.getPlace();
-            if (place && place.name) {
-                console.log('สถานที่รับรถ:', place.name, place.formatted_address);
-            }
+        const pickupAutocomplete = new PlaceAutocompleteElement({
+            inputElement: pickupInput,
+            componentRestrictions: { country: 'th' }
+        });
+        
+        pickupAutocomplete.addEventListener('gmp-placeselect', (event) => {
+            const place = event.place;
+            console.log('สถานที่รับรถ:', place.formattedAddress);
         });
         
         // สร้าง autocomplete สำหรับช่องคืนรถ
-        const dropoffAutocomplete = new Autocomplete(dropoffInput, options);
-        dropoffAutocomplete.addListener('place_changed', function() {
-            const place = dropoffAutocomplete.getPlace();
-            if (place && place.name) {
-                console.log('สถานที่คืนรถ:', place.name, place.formatted_address);
-            }
+        const dropoffAutocomplete = new PlaceAutocompleteElement({
+            inputElement: dropoffInput,
+            componentRestrictions: { country: 'th' }
+        });
+        
+        dropoffAutocomplete.addEventListener('gmp-placeselect', (event) => {
+            const place = event.place;
+            console.log('สถานที่คืนรถ:', place.formattedAddress);
         });
         
         console.log('Google Places Autocomplete พร้อมใช้งาน');
